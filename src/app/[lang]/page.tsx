@@ -1,5 +1,5 @@
-import { getDictionary } from "../../dictionaries";
-import type { Locale } from "@/i18n-config";
+import { getDictionary } from "../../lib/utils/dictionaries";
+import type { Locale } from "@/src/lib/utils/i18n-config";
 
 type HomeProps = {
   params: { lang: Locale };
