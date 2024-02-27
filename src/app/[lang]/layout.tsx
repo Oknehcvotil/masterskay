@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import { i18n, type Locale } from "@/i18n-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateStaticParams() {
-  return [{ lang: "ua" }, { lang: "en" }, { lang: "ru" }];
+  return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lang: Locale };
 }>) {
   return (
     <html lang={params.lang}>

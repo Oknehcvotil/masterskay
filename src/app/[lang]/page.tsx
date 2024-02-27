@@ -1,7 +1,8 @@
-import { getDictionary } from "./dictionaries/dictionaries";
+import { getDictionary } from "../../dictionaries";
+import type { Locale } from "@/i18n-config";
 
 type HomeProps = {
-  params: { lang: string };
+  params: { lang: Locale };
 };
 
 export default async function Home({ params: { lang } }: HomeProps) {
