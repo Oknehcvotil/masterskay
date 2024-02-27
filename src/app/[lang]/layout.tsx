@@ -5,7 +5,7 @@ import "../globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function generateStaticParams() {
-  return [{ lang: "uk-UA" }, { lang: "en-US" }, { lang: "ru" }];
+  return [{ lang: "ua" }, { lang: "en" }, { lang: "ru" }];
 }
 
 export const metadata: Metadata = {
