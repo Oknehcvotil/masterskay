@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { i18n, type Locale } from "@/src/lib/utils/i18n-config";
-import { getDictionary } from "@/src/lib/utils/dictionaries";
+import { i18n, type Locale } from "@/lib/utils/i18n-config";
+import { getDictionary } from "@/lib/utils/dictionaries";
+import Header from "../components/header";
 
-const inter = Inter({ subsets: ["latin"] });
+const montserrat = Montserrat({ subsets: ["latin"] });
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -28,9 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
-      <body className={inter.className}>
-        <header>sakdsjfdkad</header>
-        {children}
+      <body className={`${montserrat.className} bg-gray-50`}>
+        <Header lang={params.lang} />
+        <main>{children}</main>
       </body>
     </html>
   );

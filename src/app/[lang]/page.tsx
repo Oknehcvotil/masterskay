@@ -1,5 +1,5 @@
 import { getDictionary } from "../../lib/utils/dictionaries";
-import type { Locale } from "@/src/lib/utils/i18n-config";
+import type { Locale } from "@/lib/utils/i18n-config";
 
 type HomeProps = {
   params: { lang: Locale };
@@ -8,5 +8,9 @@ type HomeProps = {
 export default async function Home({ params: { lang } }: HomeProps) {
   const dict = await getDictionary(lang);
 
-  return <main>{dict.welcom.hi}</main>;
+  return (
+    <>
+      {dict.welcom.hi}
+    </>
+  );
 }

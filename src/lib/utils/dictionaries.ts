@@ -1,5 +1,5 @@
 import "server-only";
-import type { Locale } from "@/src/lib/utils/i18n-config";
+import type { Locale } from "@/lib/utils/i18n-config";
 
 const dictionaries = {
   ua: () => import("../dictionaries/ua.json").then((module) => module.default),
