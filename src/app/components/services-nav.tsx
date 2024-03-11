@@ -4,7 +4,7 @@ import { motion, Variants } from "framer-motion";
 import type { Locale } from "@/lib/utils/i18n-config";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { useMenu } from "@/lib/context/menu-context";
+import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import NavLink from "./nav-link";
 import { services } from "@/lib/data/data";
 
@@ -23,7 +23,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
     isServicesMenuOpen,
     toggleServicesMenu,
     closeServicesMenu,
-  } = useMenu();
+  } = useMenuContext();
   const pathName = usePathname();
 
   const handleClick = () => {

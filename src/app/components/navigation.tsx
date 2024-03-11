@@ -7,7 +7,7 @@ import ServicesNav from "./services-nav";
 import { navigation } from "@/lib/data/data";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useMenu } from "@/lib/context/menu-context";
+import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import NavLink from "./nav-link";
 
 const listVariants = {
@@ -64,7 +64,7 @@ export default function Navigation({
 }: NavigationProps) {
   const isOpen = isMenuOpen !== undefined ? isMenuOpen : true;
   const pathName = usePathname();
-  const { closeMenu, closeServicesMenu } = useMenu();
+  const { closeMenu, closeServicesMenu } = useMenuContext();
 
   const handleClick = () => {
     closeMenu();

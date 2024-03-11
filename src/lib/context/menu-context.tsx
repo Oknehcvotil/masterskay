@@ -15,7 +15,7 @@ type MenuProviderProps = {
   children: React.ReactNode;
 };
 
-const MenuContext = createContext<MenuContextProps | undefined>(undefined);
+export const MenuContext = createContext<MenuContextProps | undefined>(undefined);
 
 export default function MenuProvider({ children }: MenuProviderProps) {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -53,10 +53,4 @@ export default function MenuProvider({ children }: MenuProviderProps) {
   );
 }
 
-export const useMenu = () => {
-  const context = useContext(MenuContext);
-  if (!context) {
-    throw new Error("useMenu must be used within a MenuProvider");
-  }
-  return context;
-};
+

@@ -7,7 +7,7 @@ import { Squash as Hamburger } from "hamburger-react";
 import LangSwitcher from "./lang-switcher";
 import Navigation from "./navigation";
 import type { Locale } from "@/lib/utils/i18n-config";
-import { useMenu } from "@/lib/context/menu-context";
+import { useMenuContext } from "@/lib/hooks/use-menu-context";
 
 const navMobItemVariants = {
   open: {
@@ -46,7 +46,8 @@ type HeaderProps = {
 };
 
 export default function Header({ lang }: HeaderProps) {
-  const { isMenuOpen, toggleMenu, closeMenu, closeServicesMenu } = useMenu();
+  const { isMenuOpen, toggleMenu, closeMenu, closeServicesMenu } =
+    useMenuContext();
 
   const handleToggleMenu = () => {
     toggleMenu();
