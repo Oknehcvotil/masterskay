@@ -6,7 +6,6 @@ import Logo from "./logo";
 import { Squash as Hamburger } from "hamburger-react";
 import LangSwitcher from "./lang-switcher";
 import Navigation from "./navigation";
-import useResize from "@/lib/hooks/useResize";
 import type { Locale } from "@/lib/utils/i18n-config";
 
 const navMobItemVariants = {
@@ -46,20 +45,11 @@ type HeaderProps = {
 };
 
 export default function Header({ lang }: HeaderProps) {
-  const windowSize = useResize();
-  const isTab = windowSize.width >= 768;
-
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleToggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
-
-  useEffect(() => {
-    if (isTab) {
-      setMenuOpen(false);
-    }
-  }, [isTab]);
 
   return (
     <header className="relative">
@@ -76,18 +66,20 @@ export default function Header({ lang }: HeaderProps) {
             <Logo lang={lang} />
           </div>
 
-          {isTab && (
+          <div className="hidden md:block">
             <Navigation lang={lang} itemVariants={navTabItemVariants} />
-          )}
+          </div>
 
-          {isTab && <LangSwitcher />}
+          <div className="hidden md:block">
+            <LangSwitcher />
+          </div>
         </div>
       </motion.div>
       <motion.div
         initial={false}
         animate={isMenuOpen ? "open" : "closed"}
         variants={burgerVariants}
-        className="pb-7 bg-gray-100 bg-opacity-60 backdrop-blur-[0.5rem] pt-[4.5rem] flex justify-between items-center flex-col w-full h-screen overflow-y-auto absolute top-0 left-0 z-49"
+        className="py-[4.5rem] bg-gray-100 bg-opacity-60 backdrop-blur-[0.5rem] flex justify-between items-center flex-col w-full h-screen overflow-y-auto absolute top-0 left-0 z-49 md:hidden"
       >
         <Navigation
           lang={lang}
