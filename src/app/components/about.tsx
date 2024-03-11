@@ -52,7 +52,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
             viewport={{
               once: true,
             }}
