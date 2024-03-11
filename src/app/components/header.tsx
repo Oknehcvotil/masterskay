@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Logo from "./logo";
 import { Squash as Hamburger } from "hamburger-react";
 import LangSwitcher from "./lang-switcher";
 import Navigation from "./navigation";
 import type { Locale } from "@/lib/utils/i18n-config";
+import { useMenu } from "@/lib/context/menu-context";
 
 const navMobItemVariants = {
   open: {
@@ -45,25 +46,33 @@ type HeaderProps = {
 };
 
 export default function Header({ lang }: HeaderProps) {
-  const [isMenuOpen, setMenuOpen] = useState(false);
+  const { isMenuOpen, toggleMenu, closeMenu, closeServicesMenu } = useMenu();
 
   const handleToggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+    toggleMenu();
   };
 
   return (
-    <header className="relative">
+    <header className="z-[999] relative">
       <motion.div
         initial={{ y: -100, x: "-50%", opacity: 0 }}
         animate={{ y: 0, x: "-50%", opacity: 1 }}
-        className="fixed z-50 top-0 left-1/2 -translate-x-1/2 h-[4.5rem] w-full border-gray-100 border-opacity-40 bg-gray-100 bg-opacity-60 shadow-black/[0.03] backdrop-blur-[0.5rem] p-2"
+        className="fixed top-0 left-1/2 -translate-x-1/2 h-[4.5rem] w-full z-50 border-gray-100 border-opacity-40 bg-gray-100 bg-opacity-60 shadow-black/[0.03] backdrop-blur-[0.5rem] p-2"
       >
         <div className="flex items-center max-w-[64rem] justify-center md:justify-between mx-auto">
           <div className="mr-auto md:hidden">
-            <Hamburger color="#FFA07A" onToggle={handleToggleMenu} />
+            <Hamburger
+              color="#FFA07A"
+              toggled={isMenuOpen}
+              onToggle={handleToggleMenu}
+            />
           </div>
           <div className="flex-grow flex justify-center md:flex-grow-0 ">
-            <Logo lang={lang} />
+            <Logo
+              lang={lang}
+              closeMenu={closeMenu}
+              closeServicesMenu={closeServicesMenu}
+            />
           </div>
 
           <div className="hidden md:block">

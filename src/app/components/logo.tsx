@@ -6,11 +6,22 @@ import type { Locale } from "@/lib/utils/i18n-config";
 
 type LogoProps = {
   lang: Locale;
+  closeMenu: () => void;
+  closeServicesMenu: () => void;
 };
 
-export default function Logo({ lang }: LogoProps) {
+export default function Logo({
+  lang,
+  closeMenu,
+  closeServicesMenu,
+}: LogoProps) {
+   const handleClick = () => {
+     closeMenu();
+     closeServicesMenu();
+  };
+  
   return (
-    <Link href={`/${lang}`} className="outline-none">
+    <Link href={`/${lang}`} className="outline-none" onClick={handleClick}>
       <Image
         src={logo}
         alt="Masterskaya na fontane"

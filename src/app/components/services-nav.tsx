@@ -12,6 +12,7 @@ import {
   GiHouseKeys,
 } from "react-icons/gi";
 import { PiKnifeDuotone } from "react-icons/pi";
+import { useMenu } from "@/lib/context/menu-context";
 
 const itemVariants: Variants = {
   open: {
@@ -49,14 +50,24 @@ const services: ServiceNavItem[] = [
 ];
 
 export default function ServicesNav({ lang }: { lang: Locale }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const {
+    closeMenu,
+    isServicesMenuOpen,
+    toggleServicesMenu,
+    closeServicesMenu,
+  } = useMenu();
   const pathName = usePathname();
+
+  const handleClick = () => {
+    closeMenu();
+    closeServicesMenu();
+  };
 
   return (
     <motion.div
       initial={false}
-      animate={isOpen ? "open" : "closed"}
-      className={clsx("relative", { "mb-[190px] md:mb-0": isOpen })}
+      animate={isServicesMenuOpen ? "open" : "closed"}
+      className={clsx("relative", { "mb-[190px] md:mb-0": isServicesMenuOpen })}
     >
       <motion.button
         className={clsx(
@@ -67,7 +78,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
             ),
           }
         )}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => toggleServicesMenu()}
       >
         Services
         <motion.div
@@ -81,6 +92,12 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
           <IoMdArrowDropdown />
         </motion.div>
       </motion.button>
+      {isServicesMenuOpen && (
+        <div
+          onClick={closeServicesMenu}
+          className="md:fixed md:w-screen md:h-screen md:top-[4.5rem] z-10 top-0 left-0"
+        ></div>
+      )}
       <motion.ul
         className="absolute p-2 top-6 -left-[11%] w-[175px] z-50 md:top-[3.5rem] md:border-gray-100 md:border-opacity-40 md:bg-gray-100 md:bg-opacity-60 md:shadow-black/[0.03] md:backdrop-blur-[0.5rem] md:left-1/2 md:-translate-x-1/2"
         variants={{
@@ -103,7 +120,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
             },
           },
         }}
-        style={{ pointerEvents: isOpen ? "auto" : "none" }}
+        style={{ pointerEvents: isServicesMenuOpen ? "auto" : "none" }}
       >
         {services.map((service, index) => (
           <motion.li
@@ -113,6 +130,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
           >
             <Link
               href={`/${lang}/${service.href}`}
+              onClick={handleClick}
               className={clsx(
                 "hover:text-orange-500 focus:text-orange-500 transition outline-none flex items-center gap-1",
                 {

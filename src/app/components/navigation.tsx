@@ -8,6 +8,7 @@ import ServicesNav from "./services-nav";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
+import { useMenu } from "@/lib/context/menu-context";
 
 const listVariants = {
   open: {
@@ -63,6 +64,7 @@ export default function Navigation({
 }: NavigationProps) {
   const isOpen = isMenuOpen !== undefined ? isMenuOpen : true;
   const pathName = usePathname();
+  const { closeMenu, closeServicesMenu } = useMenu();
 
   const navigationItems = [
     { label: "Home", path: `/${lang}` },
@@ -70,8 +72,13 @@ export default function Navigation({
     { label: "Contacts", path: `/${lang}/contacts` },
   ];
 
+  const handleClick = () => {
+    closeMenu();
+    closeServicesMenu();
+  };
+
   return (
-    <nav>
+    <nav className="mb-5 md:mb-0">
       <motion.ul
         className={`${poppins.className} flex flex-col mb-auto pt-6 gap-5 md:flex-row md:pt-0`}
         variants={listVariants}
@@ -85,6 +92,7 @@ export default function Navigation({
             ) : (
               <Link
                 href={item.path}
+                onClick={handleClick}
                 className={clsx(
                   "hover:text-orange-500 focus:text-orange-500 transition outline-none ",
                   {

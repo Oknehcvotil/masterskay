@@ -4,6 +4,7 @@ import "./globals.css";
 import { i18n, type Locale } from "@/lib/utils/i18n-config";
 import { getDictionary } from "@/lib/utils/dictionaries";
 import Header from "../components/header";
+import MenuProvider from "@/lib/context/menu-context";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -30,8 +31,10 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={`${montserrat.className} bg-gray-50`}>
-        <Header lang={params.lang} />
-        <main>{children}</main>
+        <MenuProvider>
+          <Header lang={params.lang} />
+          <main>{children}</main>
+        </MenuProvider>
       </body>
     </html>
   );
