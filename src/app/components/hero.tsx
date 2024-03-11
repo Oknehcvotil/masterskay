@@ -8,8 +8,7 @@ export default function Hero() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-2 relative bg-fixed bg-hero bg-no-repeat bg-cover bg-center"
-      style={{ height: "800px", maxHeight: "1120px" }}
+      className="px-2 relative bg-fixed h-screen xl:h-[1120px] bg-hero bg-no-repeat bg-cover bg-center"
     >
       <div className="pt-[4.5rem] flex items-center justify-center h-full md:justify-end md:w-full max-w-[64rem] mx-auto">
         <motion.h1
