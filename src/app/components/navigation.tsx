@@ -1,14 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 import { Poppins } from "next/font/google";
 import type { Locale } from "@/lib/utils/i18n-config";
 import ServicesNav from "./services-nav";
+import { navigation } from "@/lib/data/data";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
 import { useMenu } from "@/lib/context/menu-context";
+import NavLink from "./nav-link";
 
 const listVariants = {
   open: {
@@ -66,12 +66,6 @@ export default function Navigation({
   const pathName = usePathname();
   const { closeMenu, closeServicesMenu } = useMenu();
 
-  const navigationItems = [
-    { label: "Home", path: `/${lang}` },
-    { label: "Services", component: <ServicesNav lang={lang} /> },
-    { label: "Contacts", path: `/${lang}/contacts` },
-  ];
-
   const handleClick = () => {
     closeMenu();
     closeServicesMenu();
@@ -85,23 +79,18 @@ export default function Navigation({
         initial={"closed"}
         animate={isOpen ? "open" : "closed"}
       >
-        {navigationItems.map((item, index) => (
+        {navigation.map((item, index) => (
           <motion.li key={index} variants={itemVariants}>
-            {item.component ? (
-              item.component
+            {item.href === "/services" ? (
+              <ServicesNav lang={lang} />
             ) : (
-              <Link
-                href={item.path}
+              <NavLink
+                lang={lang}
+                href={item.href}
                 onClick={handleClick}
-                className={clsx(
-                  "hover:text-orange-500 focus:text-orange-500 transition outline-none ",
-                  {
-                    "underline text-orange-500": pathName === item.path,
-                  }
-                )}
-              >
-                {item.label}
-              </Link>
+                label={item.label}
+                pathName={pathName}
+              />
             )}
           </motion.li>
         ))}

@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { motion, Variants } from "framer-motion";
 import type { Locale } from "@/lib/utils/i18n-config";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
-import {
-  GiSewingNeedle,
-  GiSewingMachine,
-  GiRunningShoe,
-  GiHouseKeys,
-} from "react-icons/gi";
-import { PiKnifeDuotone } from "react-icons/pi";
 import { useMenu } from "@/lib/context/menu-context";
+import NavLink from "./nav-link";
+import { services } from "@/lib/data/data";
 
 const itemVariants: Variants = {
   open: {
@@ -22,32 +16,6 @@ const itemVariants: Variants = {
   },
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
-
-type ServiceNavItem = {
-  label: string;
-  href: string;
-  icon: React.ReactElement;
-};
-
-const services: ServiceNavItem[] = [
-  {
-    label: "Clothing repair",
-    href: "clothing-repair",
-    icon: <GiSewingNeedle />,
-  },
-  {
-    label: "Clothing tailoring",
-    href: "clothing-tailoring",
-    icon: <GiSewingMachine />,
-  },
-  { label: "Shoe repair", href: "shoe-repair", icon: <GiRunningShoe /> },
-  { label: "Key making", href: "key-making", icon: <GiHouseKeys /> },
-  {
-    label: "Knife sharpening",
-    href: "knife-sharpening",
-    icon: <PiKnifeDuotone />,
-  },
-];
 
 export default function ServicesNav({ lang }: { lang: Locale }) {
   const {
@@ -74,7 +42,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
           "outline-none flex items-center justify-center gap-1 focus:text-orange-500 hover:text-orange-500 transition",
           {
             "underline text-orange-500": services.some(
-              (service) => pathName === `/${lang}/${service.href}`
+              (service) => pathName === `/${lang}${service.href}`
             ),
           }
         )}
@@ -128,20 +96,14 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
             variants={itemVariants}
             className={index === services.length - 1 ? "" : "mb-3"}
           >
-            <Link
-              href={`/${lang}/${service.href}`}
+            <NavLink
+              lang={lang}
+              href={service.href}
               onClick={handleClick}
-              className={clsx(
-                "hover:text-orange-500 focus:text-orange-500 transition outline-none flex items-center gap-1",
-                {
-                  "underline text-orange-500":
-                    pathName === `/${lang}/${service.href}`,
-                }
-              )}
-            >
-              {service.icon}
-              {service.label}
-            </Link>
+              icon={service.icon}
+              label={service.label}
+              pathName={pathName}
+            />
           </motion.li>
         ))}
       </motion.ul>
