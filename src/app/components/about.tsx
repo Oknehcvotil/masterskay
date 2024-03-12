@@ -75,8 +75,8 @@ export default function About() {
           }}
         >
           <ContactModalBtn onClick={toggleModal} />
-          <ContactModal isOpen={isModalOpen} onClose={closeModal} />
         </motion.div>
+        <ContactModal isOpen={isModalOpen} onClose={closeModal} />
       </section>
     </>
   );
