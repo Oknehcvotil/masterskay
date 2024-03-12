@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { motion } from "framer-motion";
+import React from "react";
+import { motion, Variants } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import ContactForm from "./contact-form";
 
-const modalVariants = {
+const modalVariants: Variants = {
   open: {
-    display: "block",
+    visibility: "visible",
     opacity: 1,
     scale: 1,
     transition: {
@@ -18,10 +18,11 @@ const modalVariants = {
   closed: {
     opacity: 0,
     scale: 0.2,
-    display: "none",
+    visibility: "hidden",
     transition: {
       delay: 0.2,
       duration: 0.3,
+      visibility: { delay: 0.5, duration: 0 },
     },
   },
 };

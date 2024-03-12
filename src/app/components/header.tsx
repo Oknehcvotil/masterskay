@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import Logo from "./logo";
 import { Squash as Hamburger } from "hamburger-react";
 import LangSwitcher from "./lang-switcher";
@@ -27,13 +27,18 @@ const navTabItemVariants = {
   closed: { opacity: 0, y: -100, transition: { duration: 0.2 } },
 };
 
-const burgerVariants = {
-  open: { display: "flex", y: 0, opacity: 1, transition: { duration: 0.5 } },
+const burgerVariants: Variants = {
+  open: {
+    visibility: "visible",
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
+  },
   closed: {
     y: -100,
     opacity: 0,
-    display: "none",
-    transition: { duration: 0.5 },
+    visibility: "hidden",
+    transition: { duration: 0.5, visibility: { delay: 0.5, duration: 0 } },
   },
 };
 
