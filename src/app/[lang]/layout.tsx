@@ -5,6 +5,8 @@ import { i18n, type Locale } from "@/lib/utils/i18n-config";
 import { getDictionary } from "@/lib/utils/dictionaries";
 import Header from "../components/header";
 import MenuProvider from "@/lib/context/menu-context";
+import { Toaster } from "react-hot-toast";
+import ModalProvider from "@/lib/context/modal-context";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -32,9 +34,12 @@ export default function RootLayout({
     <html lang={params.lang}>
       <body className={`${montserrat.className} bg-gray-50 text-gray-950`}>
         <MenuProvider>
-          <Header lang={params.lang} />
-          <main>{children}</main>
+          <ModalProvider>
+            <Header lang={params.lang} />
+            <main>{children}</main>
+          </ModalProvider>
         </MenuProvider>
+        <Toaster position="top-right" />
       </body>
     </html>
   );
