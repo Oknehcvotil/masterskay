@@ -10,12 +10,12 @@ export default function Hero() {
       animate={{ opacity: 1 }}
       className="px-2 relative md:bg-fixed h-[700px] xl:h-[1120px] bg-hero bg-no-repeat bg-cover bg-center"
     >
-      <div className="pt-[4.5rem] flex items-center justify-center h-full md:justify-end md:w-full max-w-[64rem] mx-auto">
+      <div className="pt-[4.5rem] flex items-center justify-center h-full md:justify-end md:w-full md:items-stretch max-w-[64rem] mx-auto">
         <motion.h1
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="font-medium md:text-2xl md:w-[400px] text-center text-gray-100
+          className="font-medium md:text-2xl md:w-[400px] text-center text-gray-100 md:mt-[150px]
           "
         >
           Мастерская{" "}
