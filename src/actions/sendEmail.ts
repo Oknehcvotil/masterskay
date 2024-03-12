@@ -11,9 +11,6 @@ export const sendEmail = async (formData: FormData) => {
   const senderPhone = formData.get("phone");
   const clientName = formData.get("clientName");
 
-  console.log(senderPhone);
-  console.log(clientName);
-
   if (!validateString(senderPhone, 100)) {
     return {
       error: "Invalid phone sender",
