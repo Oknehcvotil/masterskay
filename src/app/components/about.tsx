@@ -5,9 +5,6 @@ import SectionHeading from "./section-heading";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import oldPhoto from "../../../public/images/old-photo.jpg";
-import ContactModalBtn from "./contact-modal-btn";
-import ContactModal from "./contact-modal";
-import { useModalContext } from "@/lib/hooks/use-modal-context";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -24,8 +21,6 @@ const fadeInAnimationVariants = {
 };
 
 export default function About() {
-  const { isModalOpen, toggleModal, closeModal } = useModalContext();
-
   const aboutText = [
     "Наша мастерская — это не просто дело, это семейное творчество, которому мы посвятили более 30 лет. У нас собрана команда талантливых мастеров, готовых решать задачи любой сложности.",
     "Мы создаем не просто одежду, а воплощаем ваш стиль, подчеркиваем индивидуальность. Ремонт одежды у нас — это неотъемлемая часть процесса, в которой мы возвращаем жизнь вашим любимым вещам. Обувь, поддерживаемая нашим искусством ремонта, обретает новую жизнь, принося вам комфорт и дальше.",
@@ -34,7 +29,7 @@ export default function About() {
   return (
     <>
       <section className="pt-28 px-2 bg-gray/[0.4] pb-20">
-        <div className="mb-20 max-w-[64rem] items-center mx-auto flex flex-col md:flex-row md:justify-between">
+        <div className="max-w-[64rem] items-center mx-auto flex flex-col md:flex-row md:justify-between">
           <div className="max-w-[32rem] mb-10 md:mb-0 md:mr-10">
             <SectionHeading>About us</SectionHeading>
             {aboutText.map((text, index) => (
@@ -66,17 +61,6 @@ export default function About() {
             <Image src={oldPhoto} alt="workshop in 1979" quality={95} />
           </motion.div>
         </div>
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          viewport={{
-            once: true,
-          }}
-        >
-          <ContactModalBtn onClick={toggleModal} />
-        </motion.div>
-        <ContactModal isOpen={isModalOpen} onClose={closeModal} />
       </section>
     </>
   );
