@@ -11,6 +11,9 @@ export const sendEmail = async (formData: FormData) => {
   const senderPhone = formData.get("phone");
   const clientName = formData.get("clientName");
 
+  console.log(senderPhone);
+  console.log(clientName);
+
   if (!validateString(senderPhone, 100)) {
     return {
       error: "Invalid phone sender",
@@ -27,7 +30,7 @@ export const sendEmail = async (formData: FormData) => {
 
   try {
     await resend.emails.send({
-      from: "<onboarding@resend.dev>",
+      from: "My web site contact form <onboarding@resend.dev>",
       to: "litovchenko.inna1970@gmail.com",
       subject: "Номер телефона клиента с запросом перезвонить",
       react: React.createElement(ContactFormEmail, {

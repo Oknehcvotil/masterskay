@@ -17,7 +17,10 @@ type ContactFormEmailProps = {
   phone: string;
 };
 
-export default function ContactFormEmail({ name, phone }: ContactFormEmailProps) {
+export default function ContactFormEmail({
+  name,
+  phone,
+}: ContactFormEmailProps) {
   return (
     <Html>
       <Head />
@@ -31,7 +34,9 @@ export default function ContactFormEmail({ name, phone }: ContactFormEmailProps)
               </Heading>
               <Text>Имя клиента: {name}</Text>
               <Hr />
-              <Text>Номер телефона: {phone}</Text>
+              <Text>
+                Номер телефона: <a href={`tel:${phone}`}>{phone}</a>
+              </Text>
             </Section>
           </Container>
         </Body>

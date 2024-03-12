@@ -7,6 +7,7 @@ import ContactForm from "./contact-form";
 
 const modalVariants = {
   open: {
+    display: "block",
     opacity: 1,
     scale: 1,
     transition: {
@@ -17,6 +18,7 @@ const modalVariants = {
   closed: {
     opacity: 0,
     scale: 0.2,
+    display: "none",
     transition: {
       delay: 0.2,
       duration: 0.3,
