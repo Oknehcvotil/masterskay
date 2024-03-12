@@ -28,8 +28,13 @@ const navTabItemVariants = {
 };
 
 const burgerVariants = {
-  open: { y: 0, opacity: 1, transition: { duration: 0.5 } },
-  closed: { y: -100, opacity: 0, transition: { duration: 0.5 } },
+  open: { display: "flex", y: 0, opacity: 1, transition: { duration: 0.5 } },
+  closed: {
+    y: -100,
+    opacity: 0,
+    display: "none",
+    transition: { duration: 0.5 },
+  },
 };
 
 const langVariants = {
