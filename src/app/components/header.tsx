@@ -99,7 +99,7 @@ export default function Header({ lang }: HeaderProps) {
         initial={false}
         animate={isMenuOpen ? "open" : "closed"}
         variants={burgerVariants}
-        className="py-[6.5rem] bg-gray-100 bg-opacity-0 backdrop-blur-[0.5rem] flex justify-between items-center flex-col w-full h-screen overflow-y-auto fixed top-0 left-0 z-49 md:hidden"
+        className="py-[6.5rem] bg-gray-100 bg-opacity-[0.5] backdrop-blur-[0.5rem] flex justify-between items-center flex-col w-full h-screen overflow-y-auto fixed top-0 left-0 z-49 md:hidden"
       >
         <Navigation
           lang={lang}
