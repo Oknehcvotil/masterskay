@@ -28,7 +28,7 @@ export default function About() {
 
   return (
     <>
-      <section className="pt-28 px-2 bg-gray/[0.4] pb-20">
+      <section className="pt-28 px-2 bg-gray/[0.4]">
         <div className="max-w-[64rem] items-center mx-auto flex flex-col md:flex-row md:justify-between">
           <div className="max-w-[32rem] mb-10 md:mb-0 md:mr-10">
             <SectionHeading>About us</SectionHeading>
