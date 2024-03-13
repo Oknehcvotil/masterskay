@@ -7,6 +7,7 @@ import Header from "../components/header";
 import MenuProvider from "@/lib/context/menu-context";
 import { Toaster } from "react-hot-toast";
 import ModalProvider from "@/lib/context/modal-context";
+import LangProvider from "@/lib/context/lang-context";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -33,13 +34,15 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={`${montserrat.className} bg-gray-50 text-gray-950`}>
-        <MenuProvider>
-          <ModalProvider>
-            <Header lang={params.lang} />
-            <main>{children}</main>
-          </ModalProvider>
-        </MenuProvider>
-        <Toaster position="top-right" />
+        <LangProvider lang={params.lang}>
+          <MenuProvider>
+            <ModalProvider>
+              <Header />
+              <main>{children}</main>
+            </ModalProvider>
+          </MenuProvider>
+          <Toaster position="top-right" />
+        </LangProvider>
       </body>
     </html>
   );

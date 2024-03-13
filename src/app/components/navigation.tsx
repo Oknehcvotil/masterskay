@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import NavLink from "./nav-link";
+import { useLang } from "@/lib/hooks/use-lang";
 
 const listVariants = {
   open: {
@@ -58,10 +59,10 @@ type NavigationProps = {
 };
 
 export default function Navigation({
-  lang,
   itemVariants,
   isMenuOpen,
 }: NavigationProps) {
+  const { lang } = useLang();
   const isOpen = isMenuOpen !== undefined ? isMenuOpen : true;
   const pathName = usePathname();
   const { closeMenu, closeServicesMenu } = useMenuContext();

@@ -21,7 +21,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="font-medium md:text-2xl md:w-[400px] text-center text-gray-100 mb-14"
+            className="font-medium md:text-2xl md:w-[400px] text-center text-gray-100 mb-14 rounded-full outline-none"
           >
             Мастерская{" "}
             <span className="font-bold">по шитью и ремонту одежды</span>:
