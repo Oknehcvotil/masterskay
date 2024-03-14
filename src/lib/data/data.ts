@@ -11,6 +11,10 @@ import clothingTailoringImg from "../../../public/images/clothing-tailoring-bg.j
 import shoeRepairImg from "../../../public/images/shoe-repair-bg.jpg";
 import keyMakingImg from "../../../public/images/key-making-bg.jpg";
 import knifeSharpeningImg from "../../../public/images/knife-sharpening-bg.jpg";
+import { FaRegStar } from "react-icons/fa";
+import { GiSandsOfTime } from "react-icons/gi";
+import { PiHandCoins } from "react-icons/pi";
+import { LiaUserCheckSolid } from "react-icons/lia";
 
 export const navigation = [
   { label: "Home", href: "" },
@@ -48,5 +52,24 @@ export const services = [
     href: "/knife-sharpening",
     imageUrl: knifeSharpeningImg,
     icon: React.createElement(PiKnifeDuotone),
+  },
+] as const;
+
+export const advantagesData = [
+  {
+    icon: React.createElement(FaRegStar, { size: 100 }),
+    text: "Безупречное качество на все виды услуг",
+  },
+  {
+    icon: React.createElement(PiHandCoins, { size: 100 }),
+    text: "Приятные цены на услуги",
+  },
+  {
+    icon: React.createElement(GiSandsOfTime, { size: 100 }),
+    text: "Соблюдение сроков",
+  },
+  {
+    icon: React.createElement(LiaUserCheckSolid, { size: 100 }),
+    text: "Профессиональные мастера",
   },
 ] as const;

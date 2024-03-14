@@ -7,7 +7,8 @@ import ServicesSectionItem from "./services-section-item";
 
 export default function ServicesSection() {
   return (
-    <section className="pt-14 pb-14 px-2 bg-gray-300 bg-opacity-20">
+    // <section className="pt-14 pb-14 px-2 bg-gray-300 bg-opacity-20"> цвет bg
+    <section className="pt-14 pb-14 px-2">
       <div className="max-w-[64rem] mx-auto">
         <SectionHeading>Наши услуги</SectionHeading>
         <ul className="flex w-full flex-wrap items-center justify-center gap-8 md:gap-5 mx-auto">

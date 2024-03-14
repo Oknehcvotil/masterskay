@@ -54,7 +54,8 @@ export default function ServicesSectionItem({
           alt="Our services"
           quality={95}
           fill={true}
-          className="relative "
+          loading="lazy"
+          sizes="(max-width: 28rem) 100vw, 28rem"
         />
       </div>
 
