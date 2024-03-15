@@ -26,29 +26,46 @@ export default function ContactsSection() {
     <section className="px-2 pb-28 ">
       <div className="pt-28 max-w-[64rem] mx-auto">
         <SectionHeading as="h1">Contacts</SectionHeading>
-        <div className="md:w-1/2">
-          <address>
-            <motion.ul className="mb-3 sm:mb-8 flex flex-col items-start">
-              {addressData.map((item, index) => (
-                <motion.li
-                  variants={fadeInAnimationVariants}
-                  initial="initial"
-                  animate="animate"
-                  custom={index}
-                  key={index}
-                  className="group mb-3 sm:mb-8 last:mb-0  focus:text-orange-500 hover:text-orange-500 transition"
-                >
-                  <AddressItems
-                    href={item.href}
-                    icon={item.icon}
-                    text={item.text}
-                  />
-                </motion.li>
-              ))}
-            </motion.ul>
-          </address>
-        </div>
+        {[1111, 2222, 3333, 4444].map((item, index) => (
+          <motion.p
+            key={index}
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+          >
+            {item}
+          </motion.p>
+        ))}
       </div>
     </section>
   );
+  // return (
+  //   <section className="px-2 pb-28 ">
+  //     <div className="pt-28 max-w-[64rem] mx-auto">
+  //       <SectionHeading as="h1">Contacts</SectionHeading>
+  //       <div className="md:w-1/2">
+  //         <address>
+  //           <motion.ul className="mb-3 sm:mb-8 flex flex-col items-start">
+  //             {addressData.map((item, index) => (
+  //               <motion.li
+  //                 variants={fadeInAnimationVariants}
+  //                 initial="initial"
+  //                 animate="animate"
+  //                 custom={index}
+  //                 key={index}
+  //                 className="group mb-3 sm:mb-8 last:mb-0  focus:text-orange-500 hover:text-orange-500 transition"
+  //               >
+  //                 <AddressItems
+  //                   href={item.href}
+  //                   icon={item.icon}
+  //                   text={item.text}
+  //                 />
+  //               </motion.li>
+  //             ))}
+  //           </motion.ul>
+  //         </address>
+  //       </div>
+  //     </div>
+  //   </section>
+  // );
 }
