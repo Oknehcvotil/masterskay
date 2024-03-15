@@ -5,17 +5,15 @@ import {
   GiRunningShoe,
   GiHouseKeys,
 } from "react-icons/gi";
-import { PiKnifeDuotone } from "react-icons/pi";
 import clothingRepairImg from "../../../public/images/clothing-repair-bg.jpg";
 import clothingTailoringImg from "../../../public/images/clothing-tailoring-bg.jpg";
 import shoeRepairImg from "../../../public/images/shoe-repair-bg.jpg";
 import keyMakingImg from "../../../public/images/key-making-bg.jpg";
 import knifeSharpeningImg from "../../../public/images/knife-sharpening-bg.jpg";
-import { FaRegStar } from "react-icons/fa";
 import { GiSandsOfTime } from "react-icons/gi";
-import { PiHandCoins } from "react-icons/pi";
-import { LiaUserCheckSolid } from "react-icons/lia";
-import { FaViber } from "react-icons/fa";
+import { PiKnifeDuotone, PiHandCoins } from "react-icons/pi";
+import { LiaUserCheckSolid } from "react-icons/lia"; 
+import { FaRegStar, FaViber } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { RiTelegramLine } from "react-icons/ri";
 
