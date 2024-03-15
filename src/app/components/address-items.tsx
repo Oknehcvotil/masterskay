@@ -8,7 +8,7 @@ type AddressItemsProps = {
 
 export default function AddressItems({ href, icon, text }: AddressItemsProps) {
   return (
-    <li className="mb-5 focus:scale-110 hover:scale-110 transition">
+    <li className="mb-5 focus:text-orange-500 hover:text-orange-500 transition">
       <a href={href} className="flex justify-center items-center gap-1">
         {icon}
         {text}
