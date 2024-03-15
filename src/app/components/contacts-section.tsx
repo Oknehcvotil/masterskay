@@ -5,25 +5,20 @@ import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
 import AddressItems from "./address-items";
 import { addressData } from "@/lib/data/data";
-import { FaRegClock } from "react-icons/fa6";
 
-const container = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.3,
-      staggerChildren: 0.3,
-    },
+const fadeInAnimationVariants = {
+  initial: {
+    opacity: 0,
+    x: -100,
   },
-};
-
-const itemAnimation = {
-  hidden: { x: -100, opacity: 0 },
-  visible: {
+  animate: (number: number) => ({
+    opacity: 1,
     x: 0,
-    opacity: 1,
-  },
+    transition: {
+      delay: 0.1 * number,
+      duration: 0.5,
+    },
+  }),
 };
 
 export default function ContactsSection() {
@@ -33,17 +28,15 @@ export default function ContactsSection() {
         <SectionHeading as="h1">Contacts</SectionHeading>
         <div className="md:w-1/2">
           <address>
-            <motion.ul
-              variants={container}
-              initial="hidden"
-              animate="visible"
-              className="mb-3 sm:mb-8 flex flex-col items-start"
-            >
+            <motion.ul className="mb-3 sm:mb-8 flex flex-col items-start">
               {addressData.map((item, index) => (
                 <motion.li
-                  variants={itemAnimation}
+                  variants={fadeInAnimationVariants}
+                  initial="initial"
+                  animate="animate"
+                  custom={index}
                   key={index}
-                  className="group mb-3 sm:mb-8  focus:text-orange-500 hover:text-orange-500 transition"
+                  className="group mb-3 sm:mb-8 last:mb-0  focus:text-orange-500 hover:text-orange-500 transition"
                 >
                   <AddressItems
                     href={item.href}
@@ -52,20 +45,6 @@ export default function ContactsSection() {
                   />
                 </motion.li>
               ))}
-              <motion.li
-                variants={itemAnimation}
-                className="group mb-3 sm:mb-8 focus:text-orange-500 hover:text-orange-500 transition flex justify-center items-center gap-1"
-              >
-                <FaRegClock />
-                пн-сб: с 08-00 до 19-00
-              </motion.li>
-              <motion.li
-                variants={itemAnimation}
-                className="group focus:text-orange-500 hover:text-orange-500 transition flex justify-center items-center gap-1"
-              >
-                <FaRegClock />
-                вс: с 11-00 до 17-00
-              </motion.li>
             </motion.ul>
             <ul></ul>
           </address>
