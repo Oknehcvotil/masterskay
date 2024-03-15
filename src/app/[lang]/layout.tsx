@@ -34,12 +34,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
-      <body className={`${montserrat.className} bg-gray-50 text-gray-950`}>
+      <body
+        className={`${montserrat.className} bg-gray-50 text-gray-950 h-screen flex flex-col flex-1`}
+      >
         <LangProvider lang={params.lang}>
           <MenuProvider>
             <ModalProvider>
               <Header />
-              <main>{children}</main>
+              <main className="flex-grow flex-shrink flex-auto">
+                {children}
+              </main>
               <Footer />
             </ModalProvider>
           </MenuProvider>
