@@ -46,7 +46,6 @@ export default function ContactsSection() {
                 </motion.li>
               ))}
             </motion.ul>
-            <ul></ul>
           </address>
         </div>
       </div>
