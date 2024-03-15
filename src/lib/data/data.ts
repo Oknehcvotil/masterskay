@@ -15,6 +15,9 @@ import { FaRegStar } from "react-icons/fa";
 import { GiSandsOfTime } from "react-icons/gi";
 import { PiHandCoins } from "react-icons/pi";
 import { LiaUserCheckSolid } from "react-icons/lia";
+import { FaViber } from "react-icons/fa";
+import { FiPhone } from "react-icons/fi";
+import { RiTelegramLine } from "react-icons/ri";
 
 export const navigation = [
   { label: "Home", href: "" },
@@ -79,3 +82,26 @@ export const mapUrls = {
   en: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2750.0681636944687!2d30.751610699999997!3d46.4275285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6334e9b95143f%3A0xb227a3cf00ec04a2!2z0KTQntCfLtCb0LjRgtC-0LLRh9C10L3QutC-!5e0!3m2!1sen!2sua!4v1710433024130!5m2!1sen!2sua",
   ru: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2750.0681636944687!2d30.751610699999997!3d46.4275285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6334e9b95143f%3A0xb227a3cf00ec04a2!2z0KTQntCfLtCb0LjRgtC-0LLRh9C10L3QutC-!5e0!3m2!1sru!2sua!4v1710433112442!5m2!1sru!2sua",
 } as const;
+
+export const addressData = [
+  {
+    href: "tel:+380975719771",
+    text: "+38 (097) 571-97-71",
+    icon: React.createElement(FiPhone, { size: 24 }),
+  },
+  {
+    href: "tel:+380992800709",
+    text: "+38 (099) 280-07-09",
+    icon: React.createElement(FiPhone, { size: 24 }),
+  },
+  {
+    href: "viber://chat?number=%2B380975719771",
+    text: "+38 (097) 571-97-71",
+    icon: React.createElement(FaViber, { size: 24 }),
+  },
+  {
+    href: "https://telegram.me/+380975719771",
+    text: "+38 (097) 571-97-71",
+    icon: React.createElement(RiTelegramLine, { size: 24 }),
+  },
+] as const;

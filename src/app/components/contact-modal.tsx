@@ -52,6 +52,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         >
           <IoMdClose />
         </button>
+        <h3 className="text-center mb-5">
+          Оставьте ваши контактные данные и мы с вами свяжемся
+        </h3>
         <ContactForm />
       </div>
     </motion.div>

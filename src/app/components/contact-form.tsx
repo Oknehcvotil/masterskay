@@ -11,11 +11,6 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
-    <React.Fragment>
-      <h3 className="text-center mb-5">
-        Оставьте ваши контактные данные и мы с вами свяжемся
-      </h3>
-
       <form
         ref={formRef}
         className="flex flex-col"
@@ -53,6 +48,5 @@ export default function ContactForm() {
         />
         <SubmitBtn />
       </form>
-    </React.Fragment>
   );
 }
