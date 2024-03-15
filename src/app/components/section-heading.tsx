@@ -2,12 +2,16 @@ import React from "react";
 
 type SectionHeadingProps = {
   children: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
 };
 
-export default function SectionHeading({ children }: SectionHeadingProps) {
+export default function SectionHeading({
+  children,
+  as: Component = "h2",
+}: SectionHeadingProps) {
   return (
-    <h2 className="text-2xl font-medium capitalize mb-8 text-center">
+    <Component className="text-2xl font-medium capitalize mb-8 text-center">
       {children}
-    </h2>
+    </Component>
   );
 }

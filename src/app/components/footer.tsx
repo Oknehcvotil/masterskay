@@ -18,14 +18,18 @@ export default function Footer() {
           </div>
 
           <address>
-            <ul className="md:flex md:items-center md:gap-x-4 md:flex-wrap max-w-[25rem]">
+            <ul className="flex flex-col items-start md:flex-row md:items-center md:gap-x-4 md:flex-wrap max-w-[25rem]">
               {addressData.map((item, index) => (
-                <AddressItems
+                <li
                   key={index}
-                  href={item.href}
-                  icon={item.icon}
-                  text={item.text}
-                />
+                  className="mb-5 focus:text-orange-500 hover:text-orange-500 transition"
+                >
+                  <AddressItems
+                    href={item.href}
+                    icon={item.icon}
+                    text={item.text}
+                  />
+                </li>
               ))}
             </ul>
           </address>
