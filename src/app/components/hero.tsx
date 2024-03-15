@@ -3,11 +3,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ContactModalBtn from "./contact-modal-btn";
-import ContactModal from "./contact-modal";
 import { useModalContext } from "@/lib/hooks/use-modal-context";
 
 export default function Hero() {
-  const { isModalOpen, toggleModal, closeModal } = useModalContext();
+  const { toggleModal } = useModalContext();
 
   return (
     <motion.section
@@ -42,7 +41,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </motion.section>
   );
 }

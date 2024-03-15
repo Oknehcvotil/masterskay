@@ -8,6 +8,8 @@ import LangSwitcher from "./lang-switcher";
 import Navigation from "./navigation";
 import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import { useLang } from "@/lib/hooks/use-lang";
+import ContactModal from "./contact-modal";
+import { useModalContext } from "@/lib/hooks/use-modal-context";
 
 const navMobItemVariants = {
   open: {
@@ -51,12 +53,11 @@ const langVariants = {
   closed: { opacity: 0, y: 100, transition: { duration: 0.2, delay: 0.3 } },
 };
 
-
-
 export default function Header() {
   const { lang } = useLang();
   const { isMenuOpen, toggleMenu, closeMenu, closeServicesMenu } =
     useMenuContext();
+  const { isModalOpen, closeModal } = useModalContext();
 
   const handleToggleMenu = () => {
     toggleMenu();
@@ -114,6 +115,7 @@ export default function Header() {
           <LangSwitcher />
         </motion.div>
       </motion.div>
+      <ContactModal isOpen={isModalOpen} onClose={closeModal} />
     </header>
   );
 }

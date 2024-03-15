@@ -94,7 +94,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
           <motion.li
             key={index}
             variants={itemVariants}
-            className={index === services.length - 1 ? "" : "mb-3"}
+            className="group mb-3 last:mb-0"
           >
             <NavLink
               lang={lang}

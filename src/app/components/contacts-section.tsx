@@ -3,22 +3,27 @@
 import React from "react";
 import { motion } from "framer-motion";
 import SectionHeading from "./section-heading";
+import { FaRegClock } from "react-icons/fa6";
 import AddressItems from "./address-items";
 import { addressData } from "@/lib/data/data";
 
-const fadeInAnimationVariants = {
-  initial: {
-    opacity: 0,
-    x: -100,
-  },
-  animate: (number: number) => ({
+const container = {
+  hidden: { opacity: 1 },
+  visible: {
     opacity: 1,
-    x: 0,
     transition: {
-      delay: 0.1 * number,
-      duration: 0.5,
+      delayChildren: 0.3,
+      staggerChildren: 0.2,
     },
-  }),
+  },
+};
+
+const itemAnimation = {
+  hidden: { x: -100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
 };
 
 export default function ContactsSection() {
@@ -26,46 +31,43 @@ export default function ContactsSection() {
     <section className="px-2 pb-28 ">
       <div className="pt-28 max-w-[64rem] mx-auto">
         <SectionHeading as="h1">Contacts</SectionHeading>
-        {[1111, 2222, 3333, 4444].map((item, index) => (
-          <motion.p
-            key={index}
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+        <div className="w-full">
+          <motion.ul
+            className="mb-3 sm:mb-8 flex flex-col items-start"
+            variants={container}
+            initial="hidden"
+            animate="visible"
           >
-            {item}
-          </motion.p>
-        ))}
+            {addressData.map((item, index) => (
+              <motion.li
+                variants={itemAnimation}
+                key={index}
+                className="mb-3 sm:mb-8"
+              >
+                <div className="focus:text-orange-500 hover:text-orange-500 transition flex justify-center items-center gap-1">
+                  <AddressItems
+                    href={item.href}
+                    icon={item.icon}
+                    text={item.text}
+                  />
+                </div>
+              </motion.li>
+            ))}
+            <motion.li variants={itemAnimation} className="mb-3 sm:mb-8">
+              <div className="flex justify-center items-center gap-1">
+                <FaRegClock />
+                пн-сб: с 08-00 до 19-00
+              </div>
+            </motion.li>
+            <motion.li variants={itemAnimation}>
+              <div className="flex justify-center items-center gap-1">
+                <FaRegClock />
+                вс: с 11-00 до 17-00
+              </div>
+            </motion.li>
+          </motion.ul>
+        </div>
       </div>
     </section>
   );
-  // return (
-  //   <section className="px-2 pb-28 ">
-  //     <div className="pt-28 max-w-[64rem] mx-auto">
-  //       <SectionHeading as="h1">Contacts</SectionHeading>
-  //       <div className="md:w-1/2">
-  //         <address>
-  //           <motion.ul className="mb-3 sm:mb-8 flex flex-col items-start">
-  //             {addressData.map((item, index) => (
-  //               <motion.li
-  //                 variants={fadeInAnimationVariants}
-  //                 initial="initial"
-  //                 animate="animate"
-  //                 custom={index}
-  //                 key={index}
-  //                 className="group mb-3 sm:mb-8 last:mb-0  focus:text-orange-500 hover:text-orange-500 transition"
-  //               >
-  //                 <AddressItems
-  //                   href={item.href}
-  //                   icon={item.icon}
-  //                   text={item.text}
-  //                 />
-  //               </motion.li>
-  //             ))}
-  //           </motion.ul>
-  //         </address>
-  //       </div>
-  //     </div>
-  //   </section>
-  // );
 }
