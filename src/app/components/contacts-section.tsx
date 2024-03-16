@@ -28,7 +28,7 @@ const itemAnimation = {
 };
 
 const addressItems = addressData.map((item, index) => (
-  <motion.li variants={itemAnimation} key={index} className="mb-4 sm:mb-0">
+  <motion.li variants={itemAnimation} key={index} className="mb-8 sm:mb-0">
     <div className="focus:text-orange-500 hover:text-orange-500 transition flex justify-center items-center gap-1">
       <AddressItems href={item.href} icon={item.icon} text={item.text} />
     </div>
@@ -39,7 +39,7 @@ const workSchedule = workingHours.map((item, index) => (
   <motion.li
     variants={itemAnimation}
     key={index}
-    className="group mb-4 sm:mb-0 last:mb-0"
+    className="group mb-8 sm:mb-0 last:mb-0"
   >
     <div className="flex justify-center items-center gap-1">
       {item.icon}
