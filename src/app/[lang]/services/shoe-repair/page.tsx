@@ -5,13 +5,13 @@ import ServicesList from "@/app/components/services-list";
 import type { Locale } from "@/lib/utils/i18n-config";
 import { shoeRepairData } from "@/lib/data/data";
 
-type ClothingTailoringProps = {
+type ShoeRepairProps = {
   params: { lang: Locale };
 };
 
-export default async function ClothingTailoring({
+export default async function ShoeRepair({
   params: { lang },
-}: ClothingTailoringProps) {
+}: ShoeRepairProps) {
   // const dict = await getDictionary(lang);
 
   return (

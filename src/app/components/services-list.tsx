@@ -42,7 +42,7 @@ export default function ServicesList({
           viewport={{
             once: true,
           }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.5 }}
         >
           {children}
         </motion.p>
