@@ -1,0 +1,17 @@
+.bg_hero {
+  background-image: linear-gradient(
+      rgba(44, 44, 44, 0.4),
+      rgba(44, 44, 44, 0.4)
+    ),
+    url("../../../public/images/hero-bg-mob.jpg");
+}
+
+@media (min-width: 767px) {
+  .bg_hero {
+    background-image: linear-gradient(
+        rgba(44, 44, 44, 0.4),
+        rgba(44, 44, 44, 0.4)
+      ),
+      url("../../../public/images/hero-bg.jpg");
+  }
+}

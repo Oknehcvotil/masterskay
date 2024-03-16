@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body
-        className={`${montserrat.className} bg-gray-50 text-gray-950 h-screen flex flex-col flex-1`}
+        className={`${montserrat.className} bg-gray-50 text-gray-800 h-screen flex flex-col flex-1`}
       >
         <LangProvider lang={params.lang}>
           <MenuProvider>

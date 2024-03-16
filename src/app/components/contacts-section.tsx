@@ -63,7 +63,7 @@ export default function ContactsSection() {
             {addressItems}
             {workSchedule}
           </motion.ul>
-          <div className="w-full sm:w-1/2">
+          <div className="sm:w-1/2">
             <SectionHeading>Бесплатная консультация</SectionHeading>
             <motion.div
               initial={{ opacity: 0 }}

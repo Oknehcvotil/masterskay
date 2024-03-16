@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ContactModalBtn from "./contact-modal-btn";
 import { useModalContext } from "@/lib/hooks/use-modal-context";
+import styles from "./hero.module.css";
 
 export default function Hero() {
   const { toggleModal } = useModalContext();
@@ -12,7 +13,7 @@ export default function Hero() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-2 relative md:bg-fixed h-[700px] xl:h-[1120px] bg-hero bg-no-repeat bg-cover bg-center"
+      className={`${styles.bg_hero} px-2 relative md:bg-fixed h-[700px] md:h-[840px] bg-hero bg-no-repeat bg-cover bg-center`}
     >
       <div className="pt-[4.5rem] flex items-center justify-center h-full md:justify-end md:w-full md:items-stretch max-w-[64rem] mx-auto">
         <div className="flex flex-col items-center md:mt-[75px]">

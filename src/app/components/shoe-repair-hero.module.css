@@ -1,0 +1,7 @@
+.bg_hero {
+  background-image: linear-gradient(
+      rgba(44, 44, 44, 0.4),
+      rgba(44, 44, 44, 0.4)
+    ),
+    url("../../../public/images/shoe-repair-bg.jpg");
+}

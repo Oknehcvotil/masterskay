@@ -4,13 +4,13 @@ import {
   GiSewingMachine,
   GiRunningShoe,
   GiHouseKeys,
+  GiSandsOfTime,
 } from "react-icons/gi";
 import clothingRepairImg from "../../../public/images/clothing-repair-bg.jpg";
 import clothingTailoringImg from "../../../public/images/clothing-tailoring-bg.jpg";
 import shoeRepairImg from "../../../public/images/shoe-repair-bg.jpg";
 import keyMakingImg from "../../../public/images/key-making-bg.jpg";
 import knifeSharpeningImg from "../../../public/images/knife-sharpening-bg.jpg";
-import { GiSandsOfTime } from "react-icons/gi";
 import { PiKnifeDuotone, PiHandCoins } from "react-icons/pi";
 import { LiaUserCheckSolid } from "react-icons/lia";
 import { FaRegStar, FaViber, FaRegClock } from "react-icons/fa";
@@ -26,31 +26,31 @@ export const navigation = [
 export const services = [
   {
     label: "Clothing repair",
-    href: "/clothing-repair",
+    href: "/services/clothing-repair",
     imageUrl: clothingRepairImg,
     icon: React.createElement(GiSewingNeedle),
   },
   {
     label: "Clothing tailoring",
-    href: "/clothing-tailoring",
+    href: "/services/clothing-tailoring",
     imageUrl: clothingTailoringImg,
     icon: React.createElement(GiSewingMachine),
   },
   {
     label: "Shoe repair",
-    href: "/shoe-repair",
+    href: "/services/shoe-repair",
     imageUrl: shoeRepairImg,
     icon: React.createElement(GiRunningShoe),
   },
   {
     label: "Key making",
-    href: "/key-making",
+    href: "/services/key-making",
     imageUrl: keyMakingImg,
     icon: React.createElement(GiHouseKeys),
   },
   {
     label: "Knife sharpening",
-    href: "/knife-sharpening",
+    href: "/services/knife-sharpening",
     imageUrl: knifeSharpeningImg,
     icon: React.createElement(PiKnifeDuotone),
   },
@@ -114,3 +114,48 @@ export const workingHours = [
     icon: React.createElement(FaRegClock, { size: 24 }),
   },
 ] as const;
+
+export const clothingRepairData = {
+  mainTitle:
+    "Профессиональный ремонт одежды для сохранения вашего стиля и комфорта. Мы предлагаем широкий спектр услуг: от замены застежек до перешива кроя. Доверьте нам заботу о вашей одежде, и мы вернем ей первозданный вид и функциональность.",
+  aboutTitle: "Ремонт одежды",
+  aboutText:
+    "Наша мастерская по ремонту одежды предлагает высококачественные услуги по восстановлению и модификации вашей одежды. Независимо от того, требуется ли вам починка застежки, замена потертых участков или перешив кроя, наши опытные мастера справятся с задачей профессионально и эффективно. Мы ценим ваш стиль и индивидуальные предпочтения, стремясь обеспечить долговечность и удобство вашей одежде. Доверьте свои любимые вещи нам, и мы сделаем все возможное, чтобы они вновь стали вашими незаменимыми гардеробными аксессуарами. Наши основные услуги:",
+  icon: React.createElement(GiSewingNeedle),
+  list: [
+    "Всевозможный ремонт верхней и нижней одежды",
+    "Укорачивание всех видов одежды",
+    "Ушивка всех видов одежды",
+    "Замена змеек",
+    "Перешивка и ремонт верхнего и нижнего белья (купальников)",
+    "Ремонт перешивка меховых изделий",
+    "Ремонт перешивка кожаных изделий",
+    "Ремонт сумок и чемоданов",
+  ] as string[],
+} as const;
+
+export const clothingTailoringData = {
+  mainTitle:
+    "Наша мастерская предлагает индивидуальный пошив одежды, который сочетает стиль и комфорт. Мы воплотим ваши идеи в уникальные образы, каждая деталь которых отразит вашу индивидуальность.",
+  aboutTitle: "Пошив одежды",
+  aboutText:
+    "Создание уникальных образов, отражающих вашу индивидуальность! Наша мастерская специализируется на индивидуальном пошиве одежды, где каждая деталь сделана с любовью и вниманием. Независимо от вашего стиля или предпочтений, наши профессиональные мастера превратят ваши идеи в реальность. Мы гарантируем высокое качество и комфорт в каждом изделии. Доверьте нам свои мечты о идеальной одежде, и мы превзойдем ваши ожидания.",
+  icon: React.createElement(GiSewingMachine),
+} as const;
+
+export const shoeRepairData = {
+  mainTitle:
+    "Профессиональный ремонт обуви для вашего комфорта! Наша мастерская обеспечит высококачественное восстановление обуви любого вида.",
+  aboutTitle: "Ремонт обуви",
+  aboutText:
+    "Мы специализируемся на профессиональном ремонте и растяжке обуви, где каждая деталь важна для нас.  Независимо от типа обуви или проблемы, наши опытные мастера обеспечат высокое качество и долговечность каждой пары. Наши основные услуги:",
+  icon: React.createElement(GiRunningShoe),
+  list: [
+    "Всевозможный ремонт обуви",
+    "Ремонт и замена подошвы",
+    "Изминение формы носка",
+    "Чистка и покраска",
+    "Обновление цвета",
+    "Растяжка стопы, голенища обуви",
+  ] as string[],
+} as const;

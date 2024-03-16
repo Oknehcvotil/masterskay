@@ -14,19 +14,19 @@ export const sendEmail = async (formData: FormData) => {
 
   if (!validateString(senderPhone, 14)) {
     return {
-      error: "Invalid phone sender",
+      error: "Invalid phone number",
     };
   }
 
   if (!validateString(clientName, 100)) {
     return {
-      error: "Invalid client name",
+      error: "Invalid name",
     };
   }
 
   if (message && !validateString(message, 5000)) {
     return {
-      error: "Invalid client message",
+      error: "Invalid message",
     };
   }
 
