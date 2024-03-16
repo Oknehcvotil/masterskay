@@ -10,16 +10,23 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export const sendEmail = async (formData: FormData) => {
   const senderPhone = formData.get("phone");
   const clientName = formData.get("clientName");
+  const message = formData.get("message");
 
-  if (!validateString(senderPhone, 100)) {
+  if (!validateString(senderPhone, 14)) {
     return {
       error: "Invalid phone sender",
     };
   }
 
-  if (!validateString(clientName, 5000)) {
+  if (!validateString(clientName, 100)) {
     return {
       error: "Invalid client name",
+    };
+  }
+
+  if (message && !validateString(message, 5000)) {
+    return {
+      error: "Invalid client message",
     };
   }
 
@@ -33,6 +40,7 @@ export const sendEmail = async (formData: FormData) => {
       react: React.createElement(ContactFormEmail, {
         name: clientName as string,
         phone: senderPhone as string,
+        message: message as string,
       }),
     });
   } catch (error: unknown) {

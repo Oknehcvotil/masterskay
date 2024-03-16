@@ -43,7 +43,7 @@ export default function About() {
                 }}
                 custom={index}
                 key={index}
-                className="mb-4"
+                className="group mb-4 last:mb-0"
               >
                 {text}
               </motion.p>

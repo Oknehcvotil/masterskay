@@ -12,8 +12,8 @@ import keyMakingImg from "../../../public/images/key-making-bg.jpg";
 import knifeSharpeningImg from "../../../public/images/knife-sharpening-bg.jpg";
 import { GiSandsOfTime } from "react-icons/gi";
 import { PiKnifeDuotone, PiHandCoins } from "react-icons/pi";
-import { LiaUserCheckSolid } from "react-icons/lia"; 
-import { FaRegStar, FaViber } from "react-icons/fa";
+import { LiaUserCheckSolid } from "react-icons/lia";
+import { FaRegStar, FaViber, FaRegClock } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { RiTelegramLine } from "react-icons/ri";
 
@@ -101,5 +101,16 @@ export const addressData = [
     href: "https://telegram.me/+380975719771",
     text: "+38 (097) 571-97-71",
     icon: React.createElement(RiTelegramLine, { size: 24 }),
+  },
+] as const;
+
+export const workingHours = [
+  {
+    time: "пн-сб: с 08-00 до 19-00",
+    icon: React.createElement(FaRegClock, { size: 24 }),
+  },
+  {
+    time: "вс: с 11-00 до 17-00",
+    icon: React.createElement(FaRegClock, { size: 24 }),
   },
 ] as const;

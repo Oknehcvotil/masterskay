@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
-import ContactForm from "./contact-form";
+import ModalContactForm from "./modal-contact-form";
 
 const modalVariants: Variants = {
   open: {
@@ -55,7 +55,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <h3 className="text-center mb-5">
           Оставьте ваши контактные данные и мы с вами свяжемся
         </h3>
-        <ContactForm />
+        <ModalContactForm />
       </div>
     </motion.div>
   );
