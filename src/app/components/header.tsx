@@ -78,14 +78,13 @@ export default function Header() {
               onToggle={handleToggleMenu}
             />
           </div>
-          <div className="flex-grow flex justify-center md:flex-grow-0 ">
+          <div className="w-[84px] flex justify-center">
             <Logo
               lang={lang}
               closeMenu={closeMenu}
               closeServicesMenu={closeServicesMenu}
             />
           </div>
-
           <div className="hidden md:block">
             <Navigation lang={lang} itemVariants={navTabItemVariants} />
           </div>
