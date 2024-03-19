@@ -78,7 +78,7 @@ export default function Header() {
               onToggle={handleToggleMenu}
             />
           </div>
-          <div className="w-[84px] flex justify-center">
+          <div className="w-[84px] flex justify-center items-center">
             <Logo
               lang={lang}
               closeMenu={closeMenu}

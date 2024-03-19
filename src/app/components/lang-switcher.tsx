@@ -57,7 +57,7 @@ export default function LangSwitcher() {
                 }
               )}
             >
-              {locale}
+              {locale==='ua' ? "укр" : "рус"}
             </Link>
 
             {!isLast && (

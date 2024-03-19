@@ -5,5 +5,19 @@
   },
   "welcom": {
     "hi": "hi"
+  },
+  "header": {
+    "nav": {
+      "home": "Головна",
+      "contacts": "Контакти",
+      "services": "Послуги"
+    },
+    "services_nav": {
+      "clothing_repair": "Ремонт одягу",
+      "clothing_tailoring": "Пошив одягу",
+      "shoe_repair": "Ремонт взуття",
+      "key_making": "Виготовлення ключів",
+      "knife_sharpening": "Заточування ножів"
+    }
   }
 }
