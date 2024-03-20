@@ -3,12 +3,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styles from "./shoe-repair-hero.module.css";
+import { useTranslations } from "next-intl";
 
 type ShoeRepairProps = {
   children: string;
 };
 
 export default function ShoeRepairHero({ children }: ShoeRepairProps) {
+  const t = useTranslations("pages.shoe-repair.hero");
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -22,7 +25,7 @@ export default function ShoeRepairHero({ children }: ShoeRepairProps) {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-center md:text-2xl md:w-[500px] text-gray-100 outline-none"
         >
-          {children}
+          {t(children)}
         </motion.h1>
       </div>
     </motion.section>

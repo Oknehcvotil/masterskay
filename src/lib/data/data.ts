@@ -105,11 +105,11 @@ export const addressData = [
 
 export const workingHours = [
   {
-    time: "пн-сб: с 08-00 до 19-00",
+    time: "schedule.mn-st",
     icon: React.createElement(FaRegClock, { size: 24 }),
   },
   {
-    time: "вс: с 11-00 до 17-00",
+    time: "schedule.sn",
     icon: React.createElement(FaRegClock, { size: 24 }),
   },
 ] as const;
@@ -117,71 +117,63 @@ export const workingHours = [
 export const clothingRepairData = {
   mainTitle: "title",
   aboutTitle: "clothing-repair.services.title",
-  aboutText: "about",
+  aboutText: "clothing-repair.services.about",
   icon: React.createElement(GiSewingNeedle),
   list: [
-    "list.first",
-    "list.second",
-    "list.third",
-    "list.fourth",
-    "list.fifth",
-    "list.six",
-    "list.seven",
-    "list.eight",
+    "clothing-repair.services.list.first",
+    "clothing-repair.services.list.second",
+    "clothing-repair.services.list.third",
+    "clothing-repair.services.list.fourth",
+    "clothing-repair.services.list.fifth",
+    "clothing-repair.services.list.six",
+    "clothing-repair.services.list.seven",
+    "clothing-repair.services.list.eight",
   ] as string[],
 } as const;
 
 export const clothingTailoringData = {
-  mainTitle:
-    "Наша мастерская предлагает индивидуальный пошив одежды, который сочетает стиль и комфорт. Мы воплотим ваши идеи в уникальные образы, каждая деталь которых отразит вашу индивидуальность.",
-  aboutTitle: "Пошив одежды",
-  aboutText:
-    "Создание уникальных образов, отражающих вашу индивидуальность! Наша мастерская специализируется на индивидуальном пошиве одежды, где каждая деталь сделана с любовью и вниманием. Независимо от вашего стиля или предпочтений, наши профессиональные мастера превратят ваши идеи в реальность. Мы гарантируем высокое качество и комфорт в каждом изделии. Доверьте нам свои мечты о идеальной одежде, и мы превзойдем ваши ожидания.",
+  mainTitle: "title",
+  aboutTitle: "clothing-tailoring.services.title",
+  aboutText: "clothing-tailoring.services.about",
   icon: React.createElement(GiSewingMachine),
 } as const;
 
 export const shoeRepairData = {
-  mainTitle:
-    "Профессиональный ремонт обуви для вашего комфорта! Наша мастерская обеспечит высококачественное восстановление обуви любого вида.",
-  aboutTitle: "Ремонт обуви",
-  aboutText:
-    "Мы специализируемся на профессиональном ремонте и растяжке обуви, где каждая деталь важна для нас.  Независимо от типа обуви или проблемы, наши опытные мастера обеспечат высокое качество и долговечность каждой пары. Наши основные услуги:",
+  mainTitle: "title",
+  aboutTitle: "shoe-repair.services.title",
+  aboutText: "shoe-repair.services.about",
   icon: React.createElement(GiRunningShoe),
   list: [
-    "Всевозможный ремонт обуви",
-    "Ремонт и замена подошвы",
-    "Изминение формы носка",
-    "Чистка и покраска",
-    "Обновление цвета",
-    "Растяжка стопы, голенища обуви",
+    "shoe-repair.services.list.first",
+    "shoe-repair.services.list.second",
+    "shoe-repair.services.list.third",
+    "shoe-repair.services.list.fourth",
+    "shoe-repair.services.list.fifth",
+    "shoe-repair.services.list.six",
   ] as string[],
 } as const;
 
 export const keyMakingData = {
-  mainTitle:
-    "Надежное изготовление ключей на заказ! Мы быстро и качественно создаем ключи по вашим требованиям. ",
-  aboutTitle: "Изготовление ключей",
-  aboutText:
-    "В нашей мастерской мы предлагаем профессиональные услуги по изготовлению любых видов ключей на заказ. Независимо от сложности и типа ключа, наши опытные мастера справятся с задачей быстро и качественно. Мы используем только надежные материалы и современное оборудование, чтобы обеспечить безопасность и долговечность каждого изготовленного ключа. Наши основные услуги:",
+  mainTitle: "title",
+  aboutTitle: "key-making.services.title",
+  aboutText: "key-making.services.about",
   icon: React.createElement(GiHouseKeys),
   list: [
-    "Изготовления любых видов ключей",
-    "Изготовления магнитных ключей",
-    "Замена батареек в ключах, брелках, пультах",
+    "key-making.services.list.first",
+    "key-making.services.list.second",
+    "key-making.services.list.third",
   ] as string[],
 } as const;
 
 export const knifeSharpeningData = {
-  mainTitle:
-    "Наша мастерская предлагает профессиональную заточку ножей. Наши опытные специалисты обеспечат вашим ножам идеальную остроту для эффективного использования.",
-  aboutTitle: "Заточка ножей",
-  aboutText:
-    "Наши услуги по заточке ножей предназначены для тех, кто ценит остроту и надежность своих инструментов. В нашей мастерской работают опытные специалисты, которые обеспечат вашим ножам идеальную остроту и эффективность в использовании. Мы используем передовые технологии и высококачественное оборудование, чтобы гарантировать безопасность и долговечность каждого ножа. Наши основные услуги:",
+  mainTitle: "title",
+  aboutTitle: "knife-sharpening.services.title",
+  aboutText: "knife-sharpening.services.about",
   icon: React.createElement(PiKnifeDuotone),
   list: [
-    "Заточка ножей",
-    "Заточка ножниц",
-    "Заточка цепей для бензопил",
-    "Заточка ножей для мясорубок",
+    "knife-sharpening.services.list.first",
+    "knife-sharpening.services.list.second",
+    "knife-sharpening.services.list.third",
+    "knife-sharpening.services.list.fourth",
   ] as string[],
 } as const;

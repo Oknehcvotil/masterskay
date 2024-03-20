@@ -32,7 +32,7 @@ export default function ServicesList({
   icon,
   title,
 }: ServicesList) {
-  const t = useTranslations("pages.clothing-repair.services");
+  const t = useTranslations("pages");
 
   return (
     <section className="pt-14 pb-14 px-2">

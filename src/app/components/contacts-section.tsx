@@ -7,6 +7,7 @@ import AddressItems from "./address-items";
 import { addressData } from "@/lib/data/data";
 import { workingHours } from "@/lib/data/data";
 import ContactForm from "./contact-form";
+import { useTranslations } from "next-intl";
 
 const container = {
   hidden: { opacity: 1 },
@@ -35,24 +36,28 @@ const addressItems = addressData.map((item, index) => (
   </motion.li>
 ));
 
-const workSchedule = workingHours.map((item, index) => (
-  <motion.li
-    variants={itemAnimation}
-    key={index}
-    className="group mb-8 sm:mb-0 last:mb-0"
-  >
-    <div className="flex justify-center items-center gap-1">
-      {item.icon}
-      {item.time}
-    </div>
-  </motion.li>
-));
+function WorkSchedule() {
+  const t = useTranslations("pages.contacts");
+
+  return workingHours.map((item, index) => (
+    <motion.li
+      variants={itemAnimation}
+      key={index}
+      className="group mb-8 sm:mb-0 last:mb-0"
+    >
+      <div className="flex justify-center items-center gap-1">
+        {item.icon}
+        {t(item.time)}
+      </div>
+    </motion.li>
+  ));
+}
 
 export default function ContactsSection() {
   return (
     <section className="px-2 pb-28 ">
       <div className="pt-28 max-w-[64rem] mx-auto">
-        <SectionHeading as="h1">Contacts</SectionHeading>
+        <SectionHeading as="h1">contacts.title</SectionHeading>
         <div className="w-full flex flex-col items-center sm:flex-row sm:justify-between">
           <motion.ul
             className="mb-28 sm:mb-0 flex flex-col items-start sm:justify-between sm:min-h-[314px]"
@@ -61,10 +66,10 @@ export default function ContactsSection() {
             animate="visible"
           >
             {addressItems}
-            {workSchedule}
+            <WorkSchedule />
           </motion.ul>
           <div className="sm:w-1/2">
-            <SectionHeading>Бесплатная консультация</SectionHeading>
+            <SectionHeading>form.main_title</SectionHeading>
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{

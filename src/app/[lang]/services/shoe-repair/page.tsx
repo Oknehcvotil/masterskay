@@ -2,17 +2,9 @@
 import ShoeRepairHero from "@/app/components/shoe-repair-hero";
 import FormSection from "@/app/components/form-section";
 import ServicesList from "@/app/components/services-list";
-import type { Locale } from "@/lib/utils/i18n-config";
 import { shoeRepairData } from "@/lib/data/data";
 
-type ShoeRepairProps = {
-  params: { lang: Locale };
-};
-
-export default async function ShoeRepair({
-  params: { lang },
-}: ShoeRepairProps) {
-  // const dict = await getDictionary(lang);
+export default async function ShoeRepair() {
 
   return (
     <>
