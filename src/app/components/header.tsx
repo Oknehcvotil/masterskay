@@ -86,7 +86,7 @@ export default function Header() {
             />
           </div>
           <div className="hidden md:block">
-            <Navigation lang={lang} itemVariants={navTabItemVariants} />
+            <Navigation itemVariants={navTabItemVariants} />
           </div>
 
           <div className="hidden md:block">
@@ -101,7 +101,6 @@ export default function Header() {
         className="py-[6.5rem] bg-gray-100 bg-opacity-[0.5] backdrop-blur-[0.5rem] flex justify-between items-center flex-col w-full h-screen overflow-y-auto fixed top-0 left-0 z-49 md:hidden"
       >
         <Navigation
-          lang={lang}
           isMenuOpen={isMenuOpen}
           itemVariants={navMobItemVariants}
         />

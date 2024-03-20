@@ -2,14 +2,12 @@
 
 import React from "react";
 import { Poppins } from "next/font/google";
-import type { Locale } from "@/lib/utils/i18n-config";
 import ServicesNav from "./services-nav";
 import { navigation } from "@/lib/data/data";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import NavLink from "./nav-link";
-import { useLang } from "@/lib/hooks/use-lang";
 
 const listVariants = {
   open: {
@@ -36,7 +34,6 @@ const poppins = Poppins({
 });
 
 type NavigationProps = {
-  lang: Locale;
   isMenuOpen?: boolean;
   itemVariants: {
     open: {
@@ -62,7 +59,6 @@ export default function Navigation({
   itemVariants,
   isMenuOpen,
 }: NavigationProps) {
-  const { lang } = useLang();
   const isOpen = isMenuOpen !== undefined ? isMenuOpen : true;
   const pathName = usePathname();
   const { closeMenu, closeServicesMenu } = useMenuContext();
@@ -83,10 +79,9 @@ export default function Navigation({
         {navigation.map((item, index) => (
           <motion.li key={index} variants={itemVariants}>
             {item.href === "/services" ? (
-              <ServicesNav lang={lang} />
+              <ServicesNav />
             ) : (
               <NavLink
-                lang={lang}
                 href={item.href}
                 onClick={handleClick}
                 label={item.label}

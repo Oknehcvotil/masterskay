@@ -1,12 +1,13 @@
 import React from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { motion, Variants } from "framer-motion";
-import type { Locale } from "@/lib/utils/i18n-config";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/lib/hooks/use-menu-context";
 import NavLink from "./nav-link";
 import { services } from "@/lib/data/data";
+import { useTranslations } from "next-intl";
+import { useLang } from "@/lib/hooks/use-lang";
 
 const itemVariants: Variants = {
   open: {
@@ -17,13 +18,15 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
-export default function ServicesNav({ lang }: { lang: Locale }) {
+export default function ServicesNav() {
+  const { lang } = useLang();
   const {
     closeMenu,
     isServicesMenuOpen,
     toggleServicesMenu,
     closeServicesMenu,
   } = useMenuContext();
+  const t = useTranslations("header");
   const pathName = usePathname();
 
   const handleClick = () => {
@@ -48,7 +51,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
         )}
         onClick={() => toggleServicesMenu()}
       >
-        Services
+        {t("nav.services")}
         <motion.div
           variants={{
             open: { rotate: 180 },
@@ -67,7 +70,7 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
         ></div>
       )}
       <motion.ul
-        className="absolute p-2 top-6 -left-[11%] w-[175px] z-50 md:top-[3.5rem] md:border-gray-100 md:border-opacity-40 md:bg-gray-100 md:bg-opacity-60 md:shadow-black/[0.03] md:backdrop-blur-[0.5rem] md:left-1/2 md:-translate-x-1/2"
+        className="absolute p-2 top-6 -left-[11%] w-[225px] z-50 md:top-[3.5rem] md:border-gray-100 md:border-opacity-40 md:bg-gray-100 md:bg-opacity-60 md:shadow-black/[0.03] md:backdrop-blur-[0.5rem] md:left-1/2 md:-translate-x-1/2"
         variants={{
           open: {
             clipPath: "inset(0% 0% 0% 0% round 10px)",
@@ -97,7 +100,6 @@ export default function ServicesNav({ lang }: { lang: Locale }) {
             className="group mb-3 last:mb-0"
           >
             <NavLink
-              lang={lang}
               href={service.href}
               onClick={handleClick}
               icon={service.icon}

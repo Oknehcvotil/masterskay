@@ -18,38 +18,38 @@ import { FiPhone } from "react-icons/fi";
 import { RiTelegramLine } from "react-icons/ri";
 
 export const navigation = [
-  { label: "Home", href: "" },
-  { label: "Services", href: "/services" },
-  { label: "Contacts", href: "/contacts" },
+  { label: "nav.home", href: "" },
+  { label: "nav.services", href: "/services" },
+  { label: "nav.contacts", href: "/contacts" },
 ] as const;
 
 export const services = [
   {
-    label: "Clothing repair",
+    label: "services_nav.clothing_repair",
     href: "/services/clothing-repair",
     imageUrl: clothingRepairImg,
     icon: React.createElement(GiSewingNeedle),
   },
   {
-    label: "Clothing tailoring",
+    label: "services_nav.clothing_tailoring",
     href: "/services/clothing-tailoring",
     imageUrl: clothingTailoringImg,
     icon: React.createElement(GiSewingMachine),
   },
   {
-    label: "Shoe repair",
+    label: "services_nav.shoe_repair",
     href: "/services/shoe-repair",
     imageUrl: shoeRepairImg,
     icon: React.createElement(GiRunningShoe),
   },
   {
-    label: "Key making",
+    label: "services_nav.key_making",
     href: "/services/key-making",
     imageUrl: keyMakingImg,
     icon: React.createElement(GiHouseKeys),
   },
   {
-    label: "Knife sharpening",
+    label: "services_nav.knife_sharpening",
     href: "/services/knife-sharpening",
     imageUrl: knifeSharpeningImg,
     icon: React.createElement(PiKnifeDuotone),
@@ -59,25 +59,24 @@ export const services = [
 export const advantagesData = [
   {
     icon: React.createElement(FaRegStar, { size: 100 }),
-    text: "Безупречное качество на все виды услуг",
+    text: "quality",
   },
   {
     icon: React.createElement(PiHandCoins, { size: 100 }),
-    text: "Приятные цены на услуги",
+    text: "prices",
   },
   {
     icon: React.createElement(GiSandsOfTime, { size: 100 }),
-    text: "Соблюдение сроков",
+    text: "deadlines",
   },
   {
     icon: React.createElement(LiaUserCheckSolid, { size: 100 }),
-    text: "Профессиональные мастера",
+    text: "professionals",
   },
 ] as const;
 
 export const mapUrls = {
   ua: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2750.067978606894!2d30.74903577551432!3d46.427532168651915!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6334e9b95143f%3A0xb227a3cf00ec04a2!2z0KTQntCfLtCb0LjRgtC-0LLRh9C10L3QutC-!5e0!3m2!1suk!2sua!4v1710432145137!5m2!1suk!2sua",
-  en: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2750.0681636944687!2d30.751610699999997!3d46.4275285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6334e9b95143f%3A0xb227a3cf00ec04a2!2z0KTQntCfLtCb0LjRgtC-0LLRh9C10L3QutC-!5e0!3m2!1sen!2sua!4v1710433024130!5m2!1sen!2sua",
   ru: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2750.0681636944687!2d30.751610699999997!3d46.4275285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c6334e9b95143f%3A0xb227a3cf00ec04a2!2z0KTQntCfLtCb0LjRgtC-0LLRh9C10L3QutC-!5e0!3m2!1sru!2sua!4v1710433112442!5m2!1sru!2sua",
 } as const;
 
@@ -116,21 +115,19 @@ export const workingHours = [
 ] as const;
 
 export const clothingRepairData = {
-  mainTitle:
-    "Профессиональный ремонт одежды для сохранения вашего стиля и комфорта. Мы предлагаем широкий спектр услуг: от замены застежек до перешива кроя. Доверьте нам заботу о вашей одежде, и мы вернем ей первозданный вид и функциональность.",
-  aboutTitle: "Ремонт одежды",
-  aboutText:
-    "Наша мастерская по ремонту одежды предлагает высококачественные услуги по восстановлению и модификации вашей одежды. Независимо от того, требуется ли вам починка застежки, замена потертых участков или перешив кроя, наши опытные мастера справятся с задачей профессионально и эффективно. Мы ценим ваш стиль и индивидуальные предпочтения, стремясь обеспечить долговечность и удобство вашей одежде. Доверьте свои любимые вещи нам, и мы сделаем все возможное, чтобы они вновь стали вашими незаменимыми гардеробными аксессуарами. Наши основные услуги:",
+  mainTitle: "title",
+  aboutTitle: "clothing-repair.services.title",
+  aboutText: "about",
   icon: React.createElement(GiSewingNeedle),
   list: [
-    "Всевозможный ремонт верхней и нижней одежды",
-    "Укорачивание всех видов одежды",
-    "Ушивка всех видов одежды",
-    "Замена змеек",
-    "Перешивка и ремонт верхнего и нижнего белья (купальников)",
-    "Ремонт перешивка меховых изделий",
-    "Ремонт перешивка кожаных изделий",
-    "Ремонт сумок и чемоданов",
+    "list.first",
+    "list.second",
+    "list.third",
+    "list.fourth",
+    "list.fifth",
+    "list.six",
+    "list.seven",
+    "list.eight",
   ] as string[],
 } as const;
 

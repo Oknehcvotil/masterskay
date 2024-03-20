@@ -6,6 +6,7 @@ import { useLang } from "@/lib/hooks/use-lang";
 import Image from "next/image";
 import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -35,6 +36,7 @@ export default function ServicesSectionItem({
   imageUrl,
   number,
 }: ServicesSectionItemProps) {
+  const t = useTranslations("pages.home.services_section");
   const { lang } = useLang();
 
   return (
@@ -72,13 +74,13 @@ export default function ServicesSectionItem({
         }}
       >
         <h3 className="mb-4 font-semibold text-xl text-gray-100 text-center">
-          {label}
+          {t(label)}
         </h3>
         <Link
           href={`/${lang}${href}`}
           className="text-lg group text-white border border-orange-500 flex gap-2 justify-center items-center px-3 py-1 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition"
         >
-          подробнее
+          {t("btn")}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
         </Link>
       </motion.div>

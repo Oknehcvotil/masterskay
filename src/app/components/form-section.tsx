@@ -6,7 +6,7 @@ export default function FormSection() {
   return (
     <section className="py-14 px-2">
       <div className="mx-auto max-w-[42rem]">
-        <SectionHeading>Бесплатная консультация</SectionHeading>
+        <SectionHeading>form.main_title</SectionHeading>
         <ContactForm />
       </div>
     </section>

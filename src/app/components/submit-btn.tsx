@@ -1,8 +1,10 @@
 import React from "react";
 import { useFormStatus } from "react-dom";
 import { FaPaperPlane } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 
 export default function SubmitBtn() {
+  const t = useTranslations("buttons");
   const { pending } = useFormStatus();
 
   return (
@@ -15,7 +17,7 @@ export default function SubmitBtn() {
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-orange-600"></div>
       ) : (
         <>
-          Отправить{" "}
+          {t("sbt_btn")}{" "}
           <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
         </>
       )}

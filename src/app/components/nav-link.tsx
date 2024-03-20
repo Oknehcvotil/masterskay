@@ -1,9 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
+import { useLang } from "@/lib/hooks/use-lang";
 
 type NavLinkProps = {
-  lang: string;
   href: string;
   onClick: () => void;
   icon?: React.ReactNode;
@@ -11,7 +14,16 @@ type NavLinkProps = {
   pathName: string;
 };
 
-export default function NavLink({ lang, href, onClick, icon, label, pathName }: NavLinkProps) {
+export default function NavLink({
+  href,
+  onClick,
+  icon,
+  label,
+  pathName,
+}: NavLinkProps) {
+  const { lang } = useLang();
+  const t = useTranslations("header");
+
   return (
     <Link
       href={`/${lang}${href}`}
@@ -24,7 +36,7 @@ export default function NavLink({ lang, href, onClick, icon, label, pathName }: 
       )}
     >
       {icon && icon}
-      {label}
+      {t(label)}
     </Link>
   );
 }

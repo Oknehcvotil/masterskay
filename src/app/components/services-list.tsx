@@ -3,6 +3,7 @@
 import React from "react";
 import SectionHeading from "./section-heading";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -31,6 +32,8 @@ export default function ServicesList({
   icon,
   title,
 }: ServicesList) {
+  const t = useTranslations("pages.clothing-repair.services");
+
   return (
     <section className="pt-14 pb-14 px-2">
       <div className="flex flex-col items-center max-w-[52rem] mx-auto">
@@ -44,7 +47,7 @@ export default function ServicesList({
           }}
           transition={{ duration: 0.5 }}
         >
-          {children}
+          {t(children)}
         </motion.p>
         {list && (
           <ul>
@@ -61,7 +64,7 @@ export default function ServicesList({
                 custom={index}
               >
                 {icon}
-                {item}
+                {t(item)}
               </motion.li>
             ))}
           </ul>

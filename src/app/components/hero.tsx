@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import ContactModalBtn from "./contact-modal-btn";
 import { useModalContext } from "@/lib/hooks/use-modal-context";
 import styles from "./hero.module.css";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("pages.home.hero_section");
   const { toggleModal } = useModalContext();
 
   return (
@@ -23,15 +25,11 @@ export default function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="font-medium md:text-2xl md:w-[400px] text-center text-gray-100 mb-14 rounded-full outline-none"
           >
-            Мастерская{" "}
-            <span className="font-bold">по шитью и ремонту одежды</span>:
-            качественный пошив, профессиональный ремонт.{" "}
-            <span className="font-bold">Восстановление и ремонт обуви</span>,
-            растяжка для вашего комфорта.{" "}
-            <span className="font-bold">
-              Изготовление ключей и заточка ножей
-            </span>
-            . Воплощаем ваш стиль, обеспечиваем долговечность ваших вещей.
+            {t("first_part")}{" "}
+            <span className="font-bold">{t("second_part")} </span>
+            <span className="font-bold">{t("third_part")} </span>
+            <span className="font-bold">{t("fourth_part")}</span>
+            {t("fifth")}
           </motion.h1>
           <motion.div
             initial={{ y: 100, opacity: 0 }}

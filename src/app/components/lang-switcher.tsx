@@ -3,9 +3,10 @@
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { i18n, type Locale } from "@/lib/utils/i18n-config";
 import clsx from "clsx";
 import { Poppins } from "next/font/google";
+import { locales } from "@/config";
+
 
 const poppins = Poppins({
   weight: "400",
@@ -27,7 +28,7 @@ const fadeInAnimationVariants = {
 
 export default function LangSwitcher() {
   const pathName = usePathname();
-  const redirectedPathName = (locale: Locale) => {
+  const redirectedPathName = (locale: "ua" | "ru") => {
     if (!pathName) return "/";
     const segments = pathName.split("/");
     segments[1] = locale;
@@ -36,8 +37,8 @@ export default function LangSwitcher() {
 
   return (
     <ul className={`${poppins.className} flex`}>
-      {i18n.locales.map((locale, index) => {
-        const isLast = index === i18n.locales.length - 1;
+      {locales.map((locale, index) => {
+        const isLast = index === locales.length - 1;
         return (
           <motion.li
             variants={fadeInAnimationVariants}
@@ -57,7 +58,7 @@ export default function LangSwitcher() {
                 }
               )}
             >
-              {locale==='ua' ? "укр" : "рус"}
+              {locale === "ua" ? "укр" : "рус"}
             </Link>
 
             {!isLast && (

@@ -4,8 +4,10 @@ import React, { useRef } from "react";
 import { sendEmail } from "@/actions/sendEmail";
 import SubmitBtn from "./submit-btn";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 export default function ContactForm() {
+  const t = useTranslations("form");
   const formRef = useRef<HTMLFormElement>(null);
 
   return (
@@ -20,7 +22,7 @@ export default function ContactForm() {
           return;
         }
 
-        toast.success("Мы свяжемся с вами в ближайшее время");
+        toast.success(`${t("success")}`);
 
         formRef.current?.reset();
       }}
@@ -29,7 +31,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="clientName"
-          placeholder="Имя"
+          placeholder={t("name_label")}
           className="w-full mb-3 sm:mr-3 sm:mb-0  h-14 px-4 rounded-lg border-orange-600 focus:outline-2 focus:border-orange-600/50 transition-all"
           required
           maxLength={100}
@@ -37,7 +39,7 @@ export default function ContactForm() {
 
         <input
           name="phone"
-          placeholder="Телефон"
+          placeholder={t("phone_label")}
           type="tel"
           className="w-full h-14 px-4 rounded-lg border-orange-600 focus:outline-2 focus:border-orange-600/50 transition-all"
           required
@@ -48,7 +50,7 @@ export default function ContactForm() {
       <textarea
         className="h-52 sm:h-28 p-4 mb-5 rounded-lg border-orange-600 focus:outline-2 focus:border-orange-600/50 transition-all "
         name="message"
-        placeholder="Your message"
+        placeholder={t("text_label")}
         maxLength={5000}
       />
       <SubmitBtn />

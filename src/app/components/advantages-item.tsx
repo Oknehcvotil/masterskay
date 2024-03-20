@@ -3,10 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { advantagesData } from "@/lib/data/data";
+import { useTranslations } from "next-intl";
 
 type AdvantagesItemProps = (typeof advantagesData)[number];
 
 export default function AdvantagesItem({ icon, text }: AdvantagesItemProps) {
+  const t = useTranslations("pages.home.advantages");
+
   return (
     <li className="flex flex-col items-center justify-center text-center max-w-[12rem] font-semibold">
       <motion.div
@@ -27,9 +30,8 @@ export default function AdvantagesItem({ icon, text }: AdvantagesItemProps) {
           once: true,
         }}
         transition={{ duration: 0.5 }}
-        
       >
-        {text}
+        {t(text)}
       </motion.div>
     </li>
   );

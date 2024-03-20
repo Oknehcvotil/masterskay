@@ -1,8 +1,9 @@
 import React from "react";
 import { mapUrls } from "@/lib/data/data";
+import type { Locale } from "@/i18n";
 
 type GoogleMapProps = {
-  lang: "ua" | "en" | "ru";
+  lang: Locale;
 };
 
 export default function GoogleMap({ lang }: GoogleMapProps) {

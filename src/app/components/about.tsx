@@ -5,6 +5,7 @@ import SectionHeading from "./section-heading";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import oldPhoto from "../../../public/images/old-photo.jpg";
+import { useTranslations } from "next-intl";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,17 +23,15 @@ const fadeInAnimationVariants = {
 };
 
 export default function About() {
-  const aboutText = [
-    "Наша мастерская — это не просто дело, это семейное творчество, которому мы посвятили более 30 лет. У нас собрана команда талантливых мастеров, готовых решать задачи любой сложности.",
-    "Мы создаем не просто одежду, а воплощаем ваш стиль, подчеркиваем индивидуальность. Ремонт одежды у нас — это неотъемлемая часть процесса, в которой мы возвращаем жизнь вашим любимым вещам. Обувь, поддерживаемая нашим искусством ремонта, обретает новую жизнь, принося вам комфорт и дальше.",
-  ];
+  const t = useTranslations("pages.home.about_us");
+  const aboutText = ["first_paragraph", "second_paragraph"];
 
   return (
     <>
       <section className="pt-28 pb-14 px-2">
         <div className="max-w-[64rem] items-center mx-auto flex flex-col md:flex-row md:justify-between">
           <div className="max-w-[32rem] mb-10 md:mb-0 md:mr-10">
-            <SectionHeading>About us</SectionHeading>
+            <SectionHeading>home.about_us.title</SectionHeading>
             {aboutText.map((text, index) => (
               <motion.p
                 variants={fadeInAnimationVariants}
@@ -45,7 +44,7 @@ export default function About() {
                 key={index}
                 className="group mb-4 last:mb-0"
               >
-                {text}
+                {t(text)}
               </motion.p>
             ))}
           </div>

@@ -3,8 +3,11 @@ import { TfiLocationPin } from "react-icons/tfi";
 import { addressData } from "@/lib/data/data";
 import AddressItems from "./address-items";
 import FooterBtn from "./footer-btn";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="pt-28 px-2 pb-14 bg-gray-700">
       <div className="flex flex-col items-center justify-center text-gray-200 max-w-[64rem] mx-auto">
@@ -12,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col-reverse sm:flex-col sm:items-start">
             <div className="flex justify-center items-center gap-1 sm:mb-5">
               <TfiLocationPin size={24} />
-              <p>м.Одеса, Фонтанська дорога, 63в.</p>
+              <p>{t("location")}</p>
             </div>
             <FooterBtn />
           </div>

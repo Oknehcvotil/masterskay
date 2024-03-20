@@ -4,6 +4,7 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 import ModalContactForm from "./modal-contact-form";
+import { useTranslations } from "next-intl";
 
 const modalVariants: Variants = {
   open: {
@@ -33,6 +34,8 @@ type ContactModalProps = {
 };
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
+  const t = useTranslations("form");
+
   return (
     <motion.div
       variants={modalVariants}
@@ -52,9 +55,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         >
           <IoMdClose />
         </button>
-        <h3 className="text-center mb-5">
-          Оставьте ваши контактные данные и мы с вами свяжемся
-        </h3>
+        <h3 className="text-center mb-5">{t("main_title")}</h3>
         <ModalContactForm />
       </div>
     </motion.div>
