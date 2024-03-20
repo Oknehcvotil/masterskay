@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import logo from "../../../public/images/logo.png";
-import type { Locale } from "@/lib/utils/i18n-config";
+import type { Locale } from "@/i18n";
 
 type LogoProps = {
   lang: Locale;
@@ -15,11 +15,11 @@ export default function Logo({
   closeMenu,
   closeServicesMenu,
 }: LogoProps) {
-   const handleClick = () => {
-     closeMenu();
-     closeServicesMenu();
+  const handleClick = () => {
+    closeMenu();
+    closeServicesMenu();
   };
-  
+
   return (
     <Link href={`/${lang}`} className="outline-none" onClick={handleClick}>
       <Image

@@ -2,11 +2,6 @@
 
 ## Overview
 
-Welcome to `its_llc` – a web application that serves
-[its_llc website](https://Oknehcvotil.github.io/its_llc/). This project is built
-by Kirill Litovchenko using React, Redux, and other modern technologies to
-provide a dynamic and interactive user experience.
-
 Welcome to masterskay-na-fontane – a web application that serves the website for the Masterskay na Fontane. This project is designed for a clothing and footwear repair workshop. It's built by Kirill Litovchenko using Next.js and other modern technologies to provide a dynamic and interactive user experience.
 
 ## Dependencies
