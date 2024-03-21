@@ -1,3 +1,5 @@
+import { Pathnames } from "next-intl/navigation";
+
 export const locales = ["ua", "ru"] as const;
 
 export const pathnames = {
@@ -6,8 +8,9 @@ export const pathnames = {
     ua: "/ua",
     ru: "/ru",
   },
-};
+} satisfies Pathnames<typeof locales>;
 
-export const localePrefix = "/ua";
+// Use the default: `always`
+export const localePrefix = undefined;
 
 export type AppPathnames = keyof typeof pathnames;

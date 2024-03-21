@@ -5,6 +5,7 @@ export default createMiddleware({
   defaultLocale: "ua", // Устанавливаем украинский язык как язык по умолчанию
   locales,
   pathnames,
+  localePrefix,
 });
 
 export const config = {
