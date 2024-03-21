@@ -7,7 +7,7 @@ import ModalProvider from "@/lib/context/modal-context";
 import LangProvider from "@/lib/context/lang-context";
 import Footer from "../components/footer";
 import { locales } from "@/config";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
@@ -34,6 +34,7 @@ export default function RootLayout({
   params: { lang: Locale };
 }>) {
   const messages = useMessages();
+  unstable_setRequestLocale(params.lang);
 
   return (
     <html lang={params.lang}>
