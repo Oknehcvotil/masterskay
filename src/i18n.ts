@@ -10,8 +10,8 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (
       await (locale === "ua"
         ? // When using Turbopack, this will enable HMR for `en`
-          import("../messages/ua.json")
-        : import(`../messages/${locale}.json`))
+          import("./messages/ua.json")
+        : import(`./messages/${locale}.json`))
     ).default,
   };
 });
