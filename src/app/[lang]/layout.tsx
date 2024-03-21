@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
 import Header from "../components/header";
 import MenuProvider from "@/lib/context/menu-context";
 import { Toaster } from "react-hot-toast";
@@ -8,7 +7,7 @@ import ModalProvider from "@/lib/context/modal-context";
 import LangProvider from "@/lib/context/lang-context";
 import Footer from "../components/footer";
 import { locales } from "@/config";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import type { Locale } from "@/i18n";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 
