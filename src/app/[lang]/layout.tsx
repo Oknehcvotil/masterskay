@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
-import "./globals.css";
 import Header from "../components/header";
 import MenuProvider from "@/lib/context/menu-context";
 import { Toaster } from "react-hot-toast";
@@ -35,6 +34,7 @@ export default function RootLayout({
   params: { lang: Locale };
 }>) {
   const messages = useMessages();
+  unstable_setRequestLocale(params.lang);
 
   return (
     <html lang={params.lang}>

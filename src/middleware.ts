@@ -2,7 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import { pathnames, locales, localePrefix } from "./config";
 
 export default createMiddleware({
-  defaultLocale: "ua",
+  defaultLocale: "ua", // Устанавливаем украинский язык как язык по умолчанию
   locales,
   pathnames,
   localePrefix,
@@ -10,13 +10,11 @@ export default createMiddleware({
 
 export const config = {
   matcher: [
-    // Enable a redirect to a matching locale at the root
-    "/",
-
+    // Устанавливаем префикс для украинской версии сайта
+    `/${localePrefix}`,
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    "/(ua|ru)/:path*",
-
+    `/${localePrefix}/:path*`,
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)
     "/((?!_next|_vercel|.*\\..*).*)",
