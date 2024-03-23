@@ -3,8 +3,17 @@ import ShoeRepairHero from "@/app/components/shoe-repair-hero";
 import FormSection from "@/app/components/form-section";
 import ServicesList from "@/app/components/services-list";
 import { shoeRepairData } from "@/lib/data/data";
+import { unstable_setRequestLocale } from "next-intl/server";
+import { Locale } from "@/i18n";
 
-export default async function ShoeRepair() {
+type ShoeRepairProps = {
+  params: { lang: Locale };
+};
+
+export default async function ShoeRepair({
+  params: { lang },
+}: ShoeRepairProps) {
+  unstable_setRequestLocale(lang);
 
   return (
     <>
