@@ -8,18 +8,8 @@ export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
 
-  let messages;
-  if (locale === "ua") {
-    messages = require("../messages/ua.json");
-  } else if (locale === "ru") {
-    messages = require("../messages/ru.json");
-  } else {
-    // Handle other cases if needed
-    notFound();
-  }
-
   return {
-    messages: messages.default || messages, // Adjust if needed based on how your messages are exported
+    messages: (await import(`./messages/${locale}.json`)).default,
   };
 });
 
