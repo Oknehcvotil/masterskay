@@ -301,11 +301,6 @@
   border-bottom: 1px solid var(--line);
   font-size: 12px;
 }
-.workshop .service-ribbon i {
-  font-size: 17px;
-  font-style: normal;
-  color: var(--accent);
-}
 .workshop .section {
   padding-top: 66px;
   padding-bottom: 58px;
@@ -815,9 +810,6 @@
     gap: 8px 12px;
     padding: 15px;
   }
-  .workshop .service-ribbon i {
-    font-size: 13px;
-  }
   .workshop .section {
     padding-top: 41px;
     padding-bottom: 37px;
@@ -1013,10 +1005,16 @@
 .workshop .contact-form button:disabled {
   opacity: 0.65;
 }
-.workshop .service-ribbon a + a::before {
-  content: "✳";
+.workshop .service-ribbon a {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+}
+.workshop .ribbon-star {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 14px;
   color: var(--accent);
-  margin-right: 17px;
 }
 .workshop .icon {
   width: 18px;
@@ -1048,7 +1046,7 @@
   .workshop .map iframe {
     min-height: 300px;
   }
-  .workshop .service-ribbon a + a::before {
-    margin-right: 10px;
+  .workshop .service-ribbon a {
+    gap: 10px;
   }
 }

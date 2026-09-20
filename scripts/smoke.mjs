@@ -1,4 +1,4 @@
-// Run against a production build. The child server has no email key: no real mail is sent.
+// Run against a production build. All delivery keys are disabled: no real messages are sent.
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { setTimeout as delay } from "node:timers/promises";
@@ -16,7 +16,13 @@ const server = spawn(
     "3100",
   ],
   {
-    env: { ...process.env, RESEND_API_KEY: "", NEXT_TELEMETRY_DISABLED: "1" },
+    env: {
+      ...process.env,
+      RESEND_API_KEY: "",
+      TELEGRAM_BOT_TOKEN: "",
+      TELEGRAM_CHAT_ID: "",
+      NEXT_TELEMETRY_DISABLED: "1",
+    },
     stdio: ["ignore", "pipe", "pipe"],
   },
 );
@@ -128,7 +134,7 @@ try {
   assert.equal(response.status, 503);
   assert.equal((await response.json()).ok, undefined);
   console.log(
-    `HTTP checks passed: ${redirects.length} redirects, Ukrainian page, SEO, map, 404, fonts and form errors. No emails sent.`,
+    `HTTP checks passed: ${redirects.length} redirects, Ukrainian page, SEO, map, 404, fonts and form errors. No messages sent.`,
   );
 } finally {
   server.kill("SIGTERM");

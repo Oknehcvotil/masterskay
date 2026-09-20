@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createContactHandler } from "../src/lib/contact/handler";
-import { deliverContact } from "../src/lib/contact/delivery";
+import { deliverEmail } from "../src/lib/contact/email";
 import { normalizePhone, validateContact } from "../src/lib/contact/validation";
 import { createRateLimiter } from "../src/lib/contact/rate-limit";
 
@@ -141,23 +141,23 @@ test("Resend response handling checks HTTP status and receipt id; all network ca
     return response;
   });
   try {
-    assert.deepEqual(await deliverContact(details, requestId), { ok: true });
+    assert.deepEqual(await deliverEmail(details, requestId), { ok: true });
     response = new Response(JSON.stringify({ message: "rejected" }), {
       status: 422,
     });
-    assert.deepEqual(await deliverContact(details, requestId), {
+    assert.deepEqual(await deliverEmail(details, requestId), {
       ok: false,
       reason: "provider",
     });
     response = new Response(JSON.stringify({ error: "rejected" }), {
       status: 200,
     });
-    assert.deepEqual(await deliverContact(details, requestId), {
+    assert.deepEqual(await deliverEmail(details, requestId), {
       ok: false,
       reason: "provider",
     });
     delete process.env.RESEND_API_KEY;
-    assert.deepEqual(await deliverContact(details, requestId), {
+    assert.deepEqual(await deliverEmail(details, requestId), {
       ok: false,
       reason: "configuration",
     });
