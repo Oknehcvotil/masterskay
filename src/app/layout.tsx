@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={site.language}>
       <body>
-        <div className="workshop">
+        <div className="workshop" id="top">
           <SiteHeader />
           {children}
           <SiteFooter />

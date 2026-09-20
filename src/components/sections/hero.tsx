@@ -7,7 +7,7 @@ import { Icon } from "@/components/ui/icon";
 export function Hero() {
   return (
     <>
-      <section className="hero page-pad" id="top" aria-labelledby="hero-title">
+      <section className="hero page-pad" aria-labelledby="hero-title">
         <div className="hero-copy">
           <p className="eyebrow">{home.hero.eyebrow}</p>
           <h1 id="hero-title">
@@ -31,7 +31,7 @@ export function Hero() {
             <span>{addressLine}</span>
           </a>
         </div>
-        <div className="hero-visual" data-reveal>
+        <div className="hero-visual">
           <div className="hero-image">
             <Image
               src={home.hero.image}

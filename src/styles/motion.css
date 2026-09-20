@@ -5,6 +5,11 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Set only by JS for blocks that have not entered the viewport yet. */
+  .workshop [data-reveal].reveal-pending {
+    opacity: 0;
+  }
+
   .workshop .button {
     transition:
       transform 180ms ease,
@@ -30,9 +35,6 @@
   .workshop .service-ribbon a {
     transition: color 180ms ease;
   }
-  .workshop .button:active:not(:disabled) {
-    transform: translateY(1px);
-  }
   .workshop .faq details[open] > p {
     animation: answer-appear 240ms ease-out;
   }
@@ -41,7 +43,6 @@
 /* Hover motion is for a mouse/trackpad; it cannot stick after a touch on iOS. */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .workshop .button:hover:not(:disabled) {
-    transform: translateY(-2px);
     box-shadow: 0 6px 16px rgb(48 46 41 / 10%);
   }
   .workshop .button:hover:not(:disabled) svg,
@@ -51,7 +52,7 @@
   }
   .workshop .hero-image:hover img,
   .workshop .service:hover .service-photo img {
-    transform: scale(1.025);
+    transform: scale(1.015);
   }
   .workshop .service:hover {
     border-color: var(--accent);
@@ -66,10 +67,8 @@
 @keyframes answer-appear {
   from {
     opacity: 0.65;
-    transform: translateY(-4px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }

@@ -29,7 +29,6 @@ export function Services() {
             <article
               className="service"
               data-reveal
-              data-reveal-delay={index * 90}
               id={service.id}
               key={service.id}
             >
