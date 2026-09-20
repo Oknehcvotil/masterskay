@@ -10,7 +10,7 @@ export function Story() {
       aria-labelledby="story-title"
     >
       <figure>
-        <div className="story-image">
+        <div className="story-image" data-reveal>
           <Image
             src={home.story.image}
             alt={home.story.imageAlt}
@@ -20,7 +20,7 @@ export function Story() {
         </div>
         <figcaption>{home.story.caption}</figcaption>
       </figure>
-      <div className="story-copy">
+      <div className="story-copy" data-reveal>
         <p className="eyebrow">{home.story.eyebrow}</p>
         <h2 id="story-title">
           {home.story.title}

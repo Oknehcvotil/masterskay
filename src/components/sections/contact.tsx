@@ -9,7 +9,7 @@ export function Contact() {
       id="contact"
       aria-labelledby="contact-title"
     >
-      <div className="contact-info">
+      <div className="contact-info" data-reveal>
         <p className="eyebrow">{home.contact.eyebrow}</p>
         <h2 id="contact-title">
           {home.contact.title}

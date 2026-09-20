@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { InquiryProvider } from "@/components/contact/inquiry-provider";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
@@ -18,6 +19,7 @@ export default function HomePage() {
             __html: serializeJsonLd(getBusinessJsonLd()),
           }}
         />
+        <ScrollReveal />
         <Hero />
         <Services />
         <Story />

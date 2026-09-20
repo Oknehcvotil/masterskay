@@ -31,7 +31,7 @@ export function Hero() {
             <span>{addressLine}</span>
           </a>
         </div>
-        <div className="hero-visual">
+        <div className="hero-visual" data-reveal>
           <div className="hero-image">
             <Image
               src={home.hero.image}

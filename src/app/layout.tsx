@@ -5,6 +5,7 @@ import "@fontsource-variable/source-serif-4";
 import "@fontsource-variable/source-serif-4/wght-italic.css";
 import "./globals.css";
 import "@/styles/workshop.css";
+import "@/styles/motion.css";
 import { site } from "@/content/site";
 import { siteMetadata } from "@/lib/seo";
 import { SiteHeader } from "@/components/layout/site-header";

@@ -4,7 +4,7 @@ import { Icon } from "@/components/ui/icon";
 export function Faq() {
   return (
     <section className="page-pad faq" aria-labelledby="faq-title">
-      <div>
+      <div data-reveal>
         <p className="eyebrow">{home.faq.eyebrow}</p>
         <h2 id="faq-title">{home.faq.title}</h2>
       </div>

@@ -11,7 +11,7 @@ export function Services() {
       id="services"
       aria-labelledby="services-title"
     >
-      <div className="section-heading">
+      <div className="section-heading" data-reveal>
         <div>
           <p className="eyebrow">{home.services.eyebrow}</p>
           <h2 id="services-title">
@@ -26,7 +26,13 @@ export function Services() {
         {services
           .filter((service) => service.image)
           .map((service, index) => (
-            <article className="service" id={service.id} key={service.id}>
+            <article
+              className="service"
+              data-reveal
+              data-reveal-delay={index * 90}
+              id={service.id}
+              key={service.id}
+            >
               <div className="service-photo">
                 <Image
                   src={service.image!}
@@ -53,7 +59,7 @@ export function Services() {
         {services
           .filter((service) => !service.image)
           .map((service) => (
-            <article id={service.id} key={service.id}>
+            <article data-reveal id={service.id} key={service.id}>
               <Icon name={service.icon} />
               <h3>{service.title}</h3>
               <p>{service.description}</p>

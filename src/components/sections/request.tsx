@@ -10,7 +10,7 @@ export function RequestSection() {
       id="request"
       aria-labelledby="request-title"
     >
-      <div>
+      <div data-reveal>
         <p className="eyebrow">{home.request.eyebrow}</p>
         <h2 id="request-title">
           {home.request.title}
