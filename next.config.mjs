@@ -1,8 +1,11 @@
-import createNextIntlPlugin from "next-intl/plugin";
-
-const withNextIntl = createNextIntlPlugin();
+import redirects from "./config/redirects.mjs";
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  poweredByHeader: false,
+  async redirects() {
+    return redirects;
+  },
+};
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

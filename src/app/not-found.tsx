@@ -1,17 +1,19 @@
-"use client";
+import type { Metadata } from "next";
+import { site } from "@/content/site";
 
-import Error from "next/error";
-
-// Render the default Next.js 404 page when a route
-// is requested that doesn't match the middleware and
-// therefore doesn't have a locale associated with it.
-
+export const metadata: Metadata = {
+  title: "Сторінку не знайдено",
+  robots: { index: false, follow: true },
+};
 export default function NotFound() {
   return (
-    <html lang="ua">
-      <body>
-        <Error statusCode={404} />
-      </body>
-    </html>
+    <main id="main" className="page-pad section not-found">
+      <p className="eyebrow">404</p>
+      <h1>Сторінку не знайдено</h1>
+      <p>Перейдіть на головну, щоб переглянути послуги й контакти майстерні.</p>
+      <a className="button button-primary" href={site.homePath}>
+        На головну
+      </a>
+    </main>
   );
 }

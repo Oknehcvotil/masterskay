@@ -1,38 +1,151 @@
-# masterskay-na-fontane
+# Майстерня на Фонтані
 
-## Overview
+Сайт семейной мастерской в Одессе: ремонт одежды и обуви, пошив, изготовление ключей и заточка. Новый дизайн — светлый фон, терракотовые акценты, фотографии и одна основная страница на украинском языке.
 
-Welcome to masterskay-na-fontane – a web application that serves the website for the Masterskay na Fontane. This project is designed for a clothing and footwear repair workshop. It's built by Kirill Litovchenko using Next.js and other modern technologies to provide a dynamic and interactive user experience.
+**Сайт:** https://masterskaya-na-fontane.od.ua/ua
 
-## Dependencies
+Личного кабинета, CRM и базы заказов в этой версии нет. Форма отправляет обращение на почту через прежний сервис Resend. Воскресенье: **12:00–17:00**.
 
-- **@formatjs/intl-localematcher**: Internationalization library for matching locales.
-- **clsx**: A utility for constructing classNames dynamically.
-- **framer-motion**: Animation library for React components.
-- **hamburger-react**: React component for hamburger menu animations.
-- **negotiator**: Library for content negotiation.
-- **next**: Framework for server-rendered React applications.
-- **next-intl**: Internationalization library for Next.js.
-- **react**: JavaScript library for building user interfaces.
-- **react-dom**: Entry point for working with the DOM.
-- **react-email**: Library for building HTML emails with React.
-- **react-hot-toast**: Library for toast notifications in React applications.
-- **react-icons**: Library for popular icons as React components.
-- **resend**: Library for resending emails.
+## Где что менять
 
-## Getting Started
+| Что нужно изменить                                              | Файл                                                                                 |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Телефоны, адрес, часы работы, название, Google Maps             | [`src/content/site.ts`](src/content/site.ts)                                         |
+| Заголовки, описание мастерской, вопросы и ответы, подписи формы | [`src/content/home.ts`](src/content/home.ts)                                         |
+| Услуги, их описание, списки работ и фотографии                  | [`src/content/services.ts`](src/content/services.ts)                                 |
+| Цвета, размеры, отступы и мобильный дизайн                      | [`src/styles/workshop.css`](src/styles/workshop.css)                                 |
+| Порядок разделов на главной                                     | [`src/app/ua/page.tsx`](src/app/ua/page.tsx)                                         |
+| Содержимое отдельного раздела                                   | [`src/components/sections/`](src/components/sections)                                |
+| Шапка, подвал и логотип                                         | [`src/components/layout/`](src/components/layout)                                    |
+| Форма и её состояния                                            | [`src/components/contact/contact-form.tsx`](src/components/contact/contact-form.tsx) |
+| Отправка писем, отправитель и получатель по умолчанию           | [`src/lib/contact/delivery.ts`](src/lib/contact/delivery.ts)                         |
+| Проверка номера и других полей                                  | [`src/lib/contact/validation.ts`](src/lib/contact/validation.ts)                     |
+| SEO, Open Graph, разметка LocalBusiness                         | [`src/lib/seo.ts`](src/lib/seo.ts)                                                   |
+| Перенаправления со старых страниц                               | [`config/redirects.mjs`](config/redirects.mjs)                                       |
+| Фотографии                                                      | [`public/images/`](public/images)                                                    |
+| Иконка вкладки                                                  | [`src/app/icon.svg`](src/app/icon.svg)                                               |
 
-- **@types/negotiator**: TypeScript type definitions for negotiator.
-- **@types/node**: TypeScript type definitions for Node.js.
-- **@types/react**: TypeScript type definitions for React.
-- **@types/react-dom**: TypeScript type definitions for React DOM.
-- **autoprefixer**: PostCSS plugin to parse CSS and add vendor prefixes.
-- **eslint**: JavaScript and TypeScript linter.
-- **eslint-config-next**: ESLint configuration for Next.js projects.
-- **postcss**: Tool for transforming CSS with JavaScript plugins.
-- **tailwindcss**: Utility-first CSS framework.
-- **typescript**: Typed superset of JavaScript.
+### Пример: поменять воскресные часы
 
-## License
+Открой `src/content/site.ts`, найди объект с `label: "Неділя"` и поменяй:
 
-This project is private and not open for public use. All rights reserved.
+```ts
+opens: "12:00",
+closes: "17:00",
+```
+
+Часы в контактах и разметке Google обновятся вместе: второй копии расписания нет.
+
+### Пример: поменять фотографию
+
+1. Положи файл в `public/images`, например `new-workshop.jpg`.
+2. В `src/content/home.ts` или `src/content/services.ts` укажи `/images/new-workshop.jpg`.
+3. Обнови `imageAlt`: это описание для людей, использующих экранный диктор, и поисковых систем.
+
+Не добавляй `public` в адрес картинки. `next/image` автоматически создаёт уменьшенные версии. Архивное фото и остальные изображения сохранены из предыдущего сайта.
+
+## Структура проекта
+
+- `src/app` — страницы, корневой layout, SEO-файлы и API.
+- `src/content` — редактируемая информация и украинские тексты.
+- `src/components/sections` — отдельный компонент для каждого раздела.
+- `src/components/layout` — общие шапка, подвал и логотип.
+- `src/components/contact` — интерактивная форма и выбор услуги.
+- `src/components/ui` — небольшой общий набор иконок.
+- `src/lib/contact` — проверка формы, ограничения запросов и отправка письма.
+- `src/lib/seo.ts` — метаданные и JSON-LD из общих данных.
+- `src/styles` — оформление сайта, включая адаптивные правила.
+- `config` — старые URL и их назначения.
+- `tests` — проверки формы, ошибок доставки, расписания и перенаправлений.
+- `scripts/smoke.mjs` — проверка собранного сайта по HTTP; почтовый ключ отключён.
+
+Порядок главной виден прямо в `src/app/ua/page.tsx`: `Hero → Services → Story → RequestSection → Faq → Contact`. Большинство разделов — серверные компоненты. JavaScript на клиенте нужен только форме и кнопкам, которые подставляют услугу в сообщение.
+
+## Запуск на компьютере
+
+Нужен **Node.js 22 или 24**. Рекомендуемая версия указана в `.nvmrc`.
+
+```bash
+npm ci
+npm run dev
+```
+
+Открой http://localhost:3000/ua. Главная и карта работают без почтового ключа. Для формы скопируй `.env.example` в `.env.local` и заполни `RESEND_API_KEY`.
+
+PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+macOS / Linux / Git Bash:
+
+```bash
+cp .env.example .env.local
+```
+
+## Почтовая форма
+
+Маршрут `POST /api/contact` проверяет данные на сервере и отправляет письмо через Resend. Сохранены старый ключ окружения `RESEND_API_KEY` и прежний получатель по умолчанию.
+
+| Переменная                 | Назначение                                                              |
+| -------------------------- | ----------------------------------------------------------------------- |
+| `RESEND_API_KEY`           | Обязательный серверный ключ Resend; используй существующий ключ проекта |
+| `CONTACT_EMAIL_TO`         | Необязательно: новый адрес получателя вместо прежнего                   |
+| `CONTACT_EMAIL_FROM`       | Необязательно: отправитель, разрешённый в Resend                        |
+| `GOOGLE_SITE_VERIFICATION` | Необязательно: токен подтверждения сайта в Google Search Console        |
+
+Тестовый отправитель `onboarding@resend.dev` сохранён для совместимости. Resend ограничивает круг получателей для такого отправителя. Для отправки на произвольную почту нужно подтвердить свой домен в Resend и указать разрешённый `CONTACT_EMAIL_FROM`. Не используй случайный адрес Gmail как отправителя.
+
+Успех показывается **только после принятия письма Resend с идентификатором отправки**. Это не гарантирует попадание во входящие: окончательную доставку и отказы можно увидеть в Resend. При ошибке форма сохраняет введённый текст и предлагает повторить запрос или позвонить.
+
+Защита от повторного клика, ключ повторной отправки, проверка номера, ограничение размера запроса и скрытое антиспам-поле уже включены. Ограничитель частоты — 5 запросов за 10 минут на IP (при отсутствии IP — на номер), в памяти одного серверного экземпляра. На нескольких экземплярах он не является глобальной защитой; при спаме добавь общий Redis/Turnstile или ограничение на хостинге. Пользовательские данные и ключи в лог не выводятся.
+
+Тесты используют подставной ответ почтового сервиса: **настоящие письма не отправляются**. Для проверки реального ящика после публикации отправь один запрос со своим номером.
+
+## Украинский язык, старые ссылки и Google
+
+- Основной адрес остаётся `/ua`; язык документа — `uk`, как требует стандарт HTML.
+- `/`, `/ru` и `/en` перенаправляются на `/ua`.
+- Старые страницы услуг и контактов перенаправляются кодом **308** на соответствующий раздел главной. Неизвестные адреса возвращают 404.
+- `next-intl`, переключатель языка и дубли переводов удалены.
+- `title`, описание, canonical, Open Graph и Twitter Card находятся в `src/lib/seo.ts`, их тексты — в `src/content/site.ts`.
+- JSON-LD LocalBusiness использует реальные адрес, услуги и общее расписание. Вымышленных отзывов, оценок и цен нет.
+- `/sitemap.xml` содержит только каноническую страницу. `/robots.txt` разрешает индексирование сайта и закрывает API от обхода.
+- В `head` нет бесполезного `meta keywords`.
+- Шрифты берутся из npm-пакетов Fontsource и отдаются с сайта: браузер не загружает их с Google Fonts.
+- Карта Google подгружается лениво. Кнопка маршрута работает отдельно от встроенной карты.
+
+После публикации проверь `/ua` через «Проверка URL» в Search Console и отправь `https://masterskaya-na-fontane.od.ua/sitemap.xml`. Объединение страниц меняет структуру индексирования; позиции не гарантируются одними метатегами. Для отдельных направлений позже можно вернуть подробные украинские страницы, если данные Search Console покажут такую необходимость.
+
+## Проверки и оформление кода
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run build
+npm run smoke
+```
+
+Или всё сразу:
+
+```bash
+npm run check
+```
+
+Для единого форматирования после редактирования:
+
+```bash
+npm run format
+```
+
+GitHub Actions выполняет проверки при изменениях в `main` и в pull request. Почтовые секреты для сборки и тестов не нужны. Версии зависимостей зафиксированы в `package-lock.json`: используй `npm ci`, не удаляй lock-файл. Совместимые обновления PostCSS и nanoid закреплены через `overrides` из-за исправлений безопасности в транзитивных зависимостях.
+
+## Публикация и откат
+
+Если хостинг подключён к `main`, он начнёт сборку после обновления ветки. Сохрани на хостинге `RESEND_API_KEY` и при необходимости добавь остальные переменные из примера. Команда сборки — `npm run build`, запуска — `npm start`; отдельный сервер Express не нужен. Статический `output: "export"` использовать нельзя: форма требует серверный маршрут.
+
+Перед ребрендингом сохранена ветка `backup/before-uk-rebrand-2026-09-20`. Для отката рабочего `main` используй `git revert <SHA-коммита-ребрендинга>` и отправь новый коммит — переписывать историю через force push не требуется.
+
+Документация: [Next.js Metadata](https://nextjs.org/docs/app/api-reference/functions/generate-metadata), [Google LocalBusiness](https://developers.google.com/search/docs/appearance/structured-data/local-business), [Resend](https://resend.com/docs/api-reference/emails/send-email).

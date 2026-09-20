@@ -1,12 +1,33 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
+import type { Viewport } from "next";
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/source-serif-4";
+import "@fontsource-variable/source-serif-4/wght-italic.css";
 import "./globals.css";
+import "@/styles/workshop.css";
+import { site } from "@/content/site";
+import { siteMetadata } from "@/lib/seo";
+import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 
-type Props = {
-  children: ReactNode;
+export const metadata = siteMetadata;
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#faf7f1",
+  colorScheme: "light",
 };
 
-// Since we have a `not-found.tsx` page on the root, a layout file
-// is required, even if it's just passing children through.
-export default function RootLayout({ children }: Props) {
-  return children;
+export default function RootLayout({ children }: { children: ReactNode }) {
+  return (
+    <html lang={site.language}>
+      <body>
+        <div className="workshop">
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </div>
+      </body>
+    </html>
+  );
 }

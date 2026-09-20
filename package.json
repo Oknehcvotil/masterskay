@@ -1,38 +1,41 @@
 {
   "name": "masterskay-na-fontane",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint src tests --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build && npm run smoke",
+    "format": "prettier --write src tests scripts config README.md next.config.mjs",
+    "smoke": "node scripts/smoke.mjs"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.5.4",
-    "clsx": "^2.1.0",
-    "framer-motion": "^11.0.8",
-    "hamburger-react": "^2.5.0",
-    "negotiator": "^0.6.3",
-    "next": "14.1.0",
-    "next-intl": "^3.9.5",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-email": "^2.1.0",
-    "react-hot-toast": "^2.4.1",
-    "react-icons": "^5.0.1",
-    "resend": "^3.2.0"
+    "@fontsource-variable/manrope": "^5.2.0",
+    "@fontsource-variable/source-serif-4": "^5.2.0",
+    "next": "15.5.25",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-icons": "5.5.0"
   },
   "devDependencies": {
-    "@types/negotiator": "^0.6.3",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
     "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
+    "eslint-config-next": "15.5.25",
+    "prettier": "3.6.2",
+    "tsx": "^4.20.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "overrides": {
+    "postcss": "^8.5.23",
+    "nanoid": "^3.3.18"
   }
 }
